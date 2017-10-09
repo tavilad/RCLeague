@@ -1,26 +1,31 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Movement : MonoBehaviour {
-
-
+public class Movement : MonoBehaviour
+{
     public float moveSpeed = 10f;
+    public Vector3 spawn;
+    public Vector3 rotation;
 
-	void Start ()
+    private void Start()
     {
-		
-	}
-	
-	
-	void Update ()
+        spawn = transform.position;
+        rotation = new Vector3(0f, 0f, 0f);
+    }
+
+    private void Update()
     {
+        transform.Translate(moveSpeed * Input.GetAxis("Horizontal") * Time.deltaTime, 0f, moveSpeed * Input.GetAxis("Vertical") * Time.deltaTime);
 
-        //print(Input.GetAxis("Horizontal"));
-        transform.Translate(moveSpeed*Input.GetAxis("Horizontal") * Time.deltaTime, 0f, moveSpeed * Input.GetAxis("Vertical")*Time.deltaTime);
+        if (transform.position.y < -2)
+        {
+            respawn();
+        }
+    }
 
-	}
-
-
-
+    private void respawn()
+    {
+        print(transform.position.y);
+        transform.position = spawn;
+        transform.rotation = Quaternion.Euler(rotation);
+    }
 }
