@@ -5,6 +5,7 @@ public class Movement : MonoBehaviour
     public float moveSpeed = 10f;
     public Vector3 spawn;
     public Vector3 rotation;
+    public Rigidbody rb;
 
     private void Start()
     {
@@ -19,6 +20,10 @@ public class Movement : MonoBehaviour
         if (transform.position.y < -2)
         {
             respawn();
+        }
+        if (Input.GetKey(KeyCode.Space))
+        {
+            rb.AddForce(new Vector3(0, 5, 0), ForceMode.Impulse);
         }
     }
 
