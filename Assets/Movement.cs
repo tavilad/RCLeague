@@ -51,6 +51,15 @@ public class Movement : MonoBehaviour
         {
             rb.AddForce(new Vector3(0, 5, 0), ForceMode.Impulse);
         }
+<<<<<<< Updated upstream
+=======
+
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        {
+            rb.AddForce(new Vector3(0, 5, 0), ForceMode.Impulse);
+        }
+    }
+>>>>>>> Stashed changes
 
         if (Input.GetKey(KeyCode.F))
         {
