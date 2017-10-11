@@ -1,20 +1,27 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class CameraMovement : MonoBehaviour
-{
-    [SerializeField]
-    private GameObject cube;
+public class CameraMovement : MonoBehaviour {
 
-    private Vector3 offset;
+    public GameObject player;       
 
-    // Use this for initialization
-    private void Start()
+
+    private Vector3 offset;         
+
+ 
+    void Start()
     {
-        offset = transform.position - cube.transform.position;
+
+        offset = transform.position - player.transform.position;
     }
 
-    private void LateUpdate()
+
+    void LateUpdate()
     {
-        transform.position = cube.transform.position + offset;
+        
+        transform.position = player.transform.position + offset;
+        transform.LookAt(player.transform);
     }
 }
+
