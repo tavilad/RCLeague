@@ -1,12 +1,8 @@
-﻿using Assets;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class CameraMovement : MonoBehaviour {
-
-    public GameObject player;       
-
+public class CameraMovement : MonoBehaviour
+{
+    public GameObject player;
 
     private Vector3 positionOffset;
 
@@ -14,20 +10,14 @@ public class CameraMovement : MonoBehaviour {
 
     private bool lookAt = true;
 
-
-    void Start()
+    private void Start()
     {
-
         positionOffset = transform.position - player.transform.position;
-        
-        
+        Screen.SetResolution(800, 450, true);
     }
 
-
-    void LateUpdate()
+    private void LateUpdate()
     {
-       
-
         if (offsetPositionSpace == Space.Self)
         {
             transform.position = player.transform.TransformPoint(positionOffset);
@@ -37,7 +27,6 @@ public class CameraMovement : MonoBehaviour {
             transform.position = player.transform.position + positionOffset;
         }
 
-        
         if (lookAt)
         {
             transform.LookAt(player.transform);
@@ -46,9 +35,5 @@ public class CameraMovement : MonoBehaviour {
         {
             transform.rotation = player.transform.rotation;
         }
-
-
-
     }
 }
-
