@@ -13,7 +13,6 @@ public class CameraMovement : MonoBehaviour
     private void Start()
     {
         positionOffset = transform.position - player.transform.position;
-        Screen.SetResolution(800, 450, true);
     }
 
     private void LateUpdate()

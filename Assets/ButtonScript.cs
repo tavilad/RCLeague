@@ -1,5 +1,6 @@
 ﻿using Assets;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ButtonScript : MonoBehaviour
 {
@@ -55,5 +56,10 @@ public class ButtonScript : MonoBehaviour
         {
             isPressedRight = false;
         }
+    }
+
+    public void LoadLevel()
+    {
+        SceneManager.LoadScene(1);
     }
 }
