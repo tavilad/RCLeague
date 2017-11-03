@@ -3,18 +3,31 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public float moveSpeed = 10f;
+    public float maxTorque = 50f;
+    public float maxSteerAngle = 20f;
+    public Transform centerOfMass;
+    public WheelCollider[] wheelcolliders = new WheelCollider[4];
 
-    public Rigidbody rb;
+    private Rigidbody rigidbody;
 
-    private void Start()
+    public void Start()
     {
-        //rb = GetComponent<Rigidbody>();
+        rigidbody = GetComponent<Rigidbody>();
+        rigidbody.centerOfMass = centerOfMass.localPosition;
     }
 
     private void FixedUpdate()
     {
-        transform.Translate(0f, 0f, moveSpeed * Time.deltaTime);
+        float steer = maxSteerAngle * Input.GetAxis("Horizontal");
+        float speed = maxTorque * Input.GetAxis("Vertical");
+
+        wheelcolliders[0].steerAngle = steer;
+        wheelcolliders[1].steerAngle = steer;
+
+        foreach (WheelCollider wheel in wheelcolliders)
+        {
+            wheel.motorTorque = speed;
+        }
 
         if (transform.position.y < -2 || Input.GetKey(KeyCode.R))
         {
@@ -36,7 +49,7 @@ public class Movement : MonoBehaviour
     {
         if (GameObjectUtil.isGrounded(rb.transform))
         {
-            rb.AddForce(new Vector3(0, 25, 0), ForceMode.Impulse);
+            rb.AddForce(new Vector3(0, 20, 0), ForceMode.Impulse);
         }
     }
 }

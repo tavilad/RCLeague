@@ -23,9 +23,8 @@ namespace Assets
 
         public static void flip(Transform transform)
         {
-            if (isGrounded(transform) && transform.eulerAngles.x > 70 || transform.eulerAngles.z > 70)
+            if (isGrounded(transform) && transform.rotation.x > 70 || transform.eulerAngles.z > 70)
             {
-                print(transform.eulerAngles.x + " " + transform.eulerAngles.z);
                 transform.position = new Vector3(transform.position.x, 2f, transform.position.z);
                 transform.rotation = Quaternion.Euler(defaultRotation);
             }
