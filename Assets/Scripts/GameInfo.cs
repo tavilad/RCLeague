@@ -1,32 +1,45 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using Assets.Scripts;
 using System;
 using System.Collections.Generic;
-using Assets.Scripts;
 using System.Linq;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class GameInfo : MonoBehaviour
 {
+    private bool hasPickup;
+    private PickUps pick;
+    public Text fps;
+
     private void Start()
     {
+        hasPickup = false;
     }
 
     private void Update()
     {
+        fps.text = (1 / Time.smoothDeltaTime).ToString();
+        //add random pickups at level start
+
+        //respawn pickup
     }
 
     private void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.tag == "PickUp")
         {
-            //get random pickup
-            PickUps pick = GetPickup();
-            print(pick);
+            if (!hasPickup)
+            {
+                //get random pickup
+                pick = GetPickup();
+                print(pick);
 
-            //show in UI
+                //show in UI
 
-            //destroy pickup object
-            Destroy(col.gameObject);
+                //destroy pickup object
+                Destroy(col.gameObject);
+                hasPickup = true;
+            }
         }
     }
 
@@ -37,7 +50,16 @@ public class GameInfo : MonoBehaviour
 
         //get random pickup
         System.Random random = new System.Random();
-        int pick = random.Next(0, pickups.Count);
-        return pickups[pick];
+        int index = random.Next(0, pickups.Count);
+        return pickups[index];
+    }
+
+    public void ActivatePickUp()
+    {
+        if (hasPickup)
+        {
+            print("Activating " + pick);
+            hasPickup = false;
+        }
     }
 }

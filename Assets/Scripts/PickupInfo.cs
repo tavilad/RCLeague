@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class PickupInfo : MonoBehaviour
+public class PickupInfo : ScriptableObject
 {
     private void Start()
     {

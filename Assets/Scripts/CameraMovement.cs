@@ -34,11 +34,5 @@ public class CameraMovement : MonoBehaviour
         transform.position = new Vector3(transform.position.x, currentHeight, transform.position.z);
 
         transform.LookAt(target);
-
-        if (Input.GetKey(KeyCode.F))
-        {
-            transform.position += currentRotation * Vector3.forward * distance * distance;
-            transform.rotation = Quaternion.Euler(0, -180, 0);
-        }
     }
 }

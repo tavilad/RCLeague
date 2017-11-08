@@ -8,17 +8,38 @@ public class ButtonScript : MonoBehaviour
     public bool isPressedRight;
 
     public GameObject obj;
+    private Movement movement;
+    public WheelCollider[] wheels = new WheelCollider[2];
+    public float steerAngle;
+
+    private void Start()
+    {
+        movement = obj.GetComponent<Movement>();
+    }
 
     public void Update()
     {
-        if (isPressedLeft)
+        if (movement != null)
         {
-            Movement.MoveLeft(obj, 10f);
-        }
+            if (isPressedLeft)
+            {
+                movement.MoveLeft(wheels, steerAngle);
+            }
+            else
 
-        if (isPressedRight)
+                if (isPressedRight)
+                {
+                    movement.MoveRight(wheels, steerAngle);
+                }
+                else
+                {
+                    wheels[0].steerAngle = 0;
+                    wheels[1].steerAngle = 0;
+                }
+        }
+        else
         {
-            Movement.MoveRight(obj, 10f);
+            //print("cant find movement component");
         }
     }
 
@@ -58,8 +79,62 @@ public class ButtonScript : MonoBehaviour
         }
     }
 
-    public void LoadLevel()
+    public void LoadLevel(int index)
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(index);
+    }
+
+    public void Quality(GameObject obj)
+    {
+        if (obj.transform.tag == "Fastest")
+        {
+            QualitySettings.SetQualityLevel(0, true);
+            Debug.Log("fastest");
+        }
+        if (obj.transform.tag == "Fast")
+        {
+            QualitySettings.SetQualityLevel(1, true);
+            Debug.Log("fast");
+        }
+        if (obj.transform.tag == "Simple")
+        {
+            QualitySettings.SetQualityLevel(2, true);
+            Debug.Log("simple");
+        }
+        if (obj.transform.tag == "Good")
+        {
+            QualitySettings.SetQualityLevel(3, true);
+            Debug.Log("good");
+        }
+        if (obj.transform.tag == "Beautiful")
+        {
+            QualitySettings.SetQualityLevel(4, true);
+            Debug.Log("beautiful");
+        }
+        if (obj.transform.tag == "Fantastic")
+        {
+            QualitySettings.SetQualityLevel(5, true);
+            Debug.Log("Fantastic");
+        }
+        if (obj.transform.tag == "Resolution1")
+        {
+            Screen.SetResolution(896, 504, true);
+            Debug.Log("resolution1");
+        }
+        if (obj.transform.tag == "Resolution2")
+        {
+            Screen.SetResolution(960, 540, true);
+            Debug.Log("resolution2");
+        }
+        if (obj.transform.tag == "Resolution3")
+        {
+            Screen.SetResolution(1024, 576, true);
+            Debug.Log("resolution3");
+        }
+        if (obj.transform.tag == "Resolution4")
+        {
+            Screen.SetResolution(1152, 648, true);
+            Debug.Log("resolution4");
+        }
     }
 }
