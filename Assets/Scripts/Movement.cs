@@ -69,6 +69,7 @@ public class Movement : MonoBehaviour
         if (GameObjectUtil.isGrounded(rb.transform))
         {
             rb.AddForce(new Vector3(0, 70, 0), ForceMode.Impulse);
+            Debug.Log("Jumped");
         }
     }
 

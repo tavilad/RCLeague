@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -10,6 +11,9 @@ public class GameInfo : MonoBehaviour
     private bool hasPickup;
     private PickUps pick;
     public Text fps;
+    private float respawnTime = 5f;
+    private Vector3 respawnPosition;
+    public GameObject pickup;
 
     private void Start()
     {
@@ -24,7 +28,7 @@ public class GameInfo : MonoBehaviour
         //respawn pickup
     }
 
-    private void OnCollisionEnter(Collision col)
+    private void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.tag == "PickUp")
         {
@@ -32,15 +36,23 @@ public class GameInfo : MonoBehaviour
             {
                 //get random pickup
                 pick = GetPickup();
-                print(pick);
+                Debug.Log("pick");
 
                 //show in UI
 
                 //destroy pickup object
+                respawnPosition = col.gameObject.transform.position;
+                StartCoroutine(RespawnPickup(pickup, respawnPosition));
                 Destroy(col.gameObject);
                 hasPickup = true;
             }
         }
+    }
+
+    private IEnumerator RespawnPickup(GameObject obj, Vector3 position)
+    {
+        yield return new WaitForSeconds(respawnTime);
+        Instantiate(obj, position, new Quaternion(0, 0, 0, 0));
     }
 
     private PickUps GetPickup()
@@ -58,7 +70,7 @@ public class GameInfo : MonoBehaviour
     {
         if (hasPickup)
         {
-            print("Activating " + pick);
+            Debug.Log("Activating" + pick);
             hasPickup = false;
         }
     }
