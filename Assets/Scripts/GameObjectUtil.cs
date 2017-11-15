@@ -23,9 +23,12 @@ namespace Assets
 
         public static void flip(Transform transform)
         {
-            if (isGrounded(transform) && transform.rotation.x > 70 || transform.eulerAngles.z > 70)
+            RaycastHit hit;
+            print(isGrounded(transform) + " " + transform.localRotation.x + " " + transform.localRotation.z);
+
+            if (Physics.Raycast(transform.position, Vector3.down, out hit, distanceToGround + 0.1f))
             {
-                transform.position = new Vector3(transform.position.x, 2f, transform.position.z);
+                transform.position = hit.point + new Vector3(0f, 2f, 0f);
                 transform.rotation = Quaternion.Euler(defaultRotation);
             }
         }

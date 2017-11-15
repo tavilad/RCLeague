@@ -25,28 +25,73 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //wheelcolliders[0].steerAngle = maxSteerAngle * Input.GetAxis("Horizontal");
-        //wheelcolliders[1].steerAngle = maxSteerAngle * Input.GetAxis("Horizontal");
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            //Debug.Log("Android");
+        }
+        if (Application.platform == RuntimePlatform.WindowsPlayer)
+        {
+            //Debug.Log("pc");
+            wheelcolliders[0].steerAngle = maxSteerAngle * Input.GetAxis("Horizontal");
+            wheelcolliders[1].steerAngle = maxSteerAngle * Input.GetAxis("Horizontal");
+            if (transform.position.y < -2 || Input.GetKey(KeyCode.R))
+            {
+                GameObjectUtil.respawn(transform);
+            }
+
+            if (Input.GetKey(KeyCode.F))
+            {
+                if (info != null)
+                {
+                    info.ActivatePickUp();
+                }
+                else
+                {
+                    print("cant find component");
+                }
+            }
+
+            if (Input.GetKey(KeyCode.Space))
+            {
+                Movement.Jump(rigidbody);
+            }
+        }
+        if (Application.platform == RuntimePlatform.WindowsEditor)
+        {
+            //Debug.Log("editor");
+            wheelcolliders[0].steerAngle = maxSteerAngle * Input.GetAxis("Horizontal");
+            wheelcolliders[1].steerAngle = maxSteerAngle * Input.GetAxis("Horizontal");
+            if (transform.position.y < -2 || Input.GetKey(KeyCode.R))
+            {
+                GameObjectUtil.respawn(transform);
+            }
+
+            if (Input.GetKey(KeyCode.F))
+            {
+                if (info != null)
+                {
+                    info.ActivatePickUp();
+                }
+                else
+                {
+                    print("cant find component");
+                }
+            }
+
+            if (Input.GetKey(KeyCode.Space))
+            {
+                Jump(rigidbody);
+            }
+        }
+
         foreach (WheelCollider wheel in wheelcolliders)
         {
             wheel.motorTorque = maxTorque;
         }
 
-        if (transform.position.y < -2 || Input.GetKey(KeyCode.R))
+        if (Input.GetKey(KeyCode.R))
         {
             GameObjectUtil.respawn(transform);
-        }
-
-        if (Input.GetKey(KeyCode.F))
-        {
-            if (info != null)
-            {
-                info.ActivatePickUp();
-            }
-            else
-            {
-                print("cant find component");
-            }
         }
     }
 
@@ -68,7 +113,7 @@ public class Movement : MonoBehaviour
     {
         if (GameObjectUtil.isGrounded(rb.transform))
         {
-            rb.AddForce(new Vector3(0, 70, 0), ForceMode.Impulse);
+            rb.AddForce(new Vector3(0, 20, 0), ForceMode.Impulse);
             Debug.Log("Jumped");
         }
     }

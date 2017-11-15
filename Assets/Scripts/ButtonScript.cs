@@ -1,6 +1,7 @@
 ﻿using Assets;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ButtonScript : MonoBehaviour
 {
@@ -11,10 +12,15 @@ public class ButtonScript : MonoBehaviour
     private Movement movement;
     public WheelCollider[] wheels = new WheelCollider[2];
     public float steerAngle;
+    public Canvas canvas;
 
     private void Start()
     {
         movement = obj.GetComponent<Movement>();
+        if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
+        {
+            //canvas.enabled = false;
+        }
     }
 
     public void Update()

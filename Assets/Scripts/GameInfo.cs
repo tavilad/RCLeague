@@ -1,4 +1,4 @@
-﻿using Assets.Scripts;
+﻿//using Assets.Scripts;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,11 +9,13 @@ using UnityEngine.UI;
 public class GameInfo : MonoBehaviour
 {
     private bool hasPickup;
-    private PickUps pick;
     public Text fps;
     private float respawnTime = 5f;
     private Vector3 respawnPosition;
     public GameObject pickup;
+    public PickupInfo[] pickupsData;
+    public RawImage imagePick;
+    private PickupInfo currentPick;
 
     private void Start()
     {
@@ -24,8 +26,6 @@ public class GameInfo : MonoBehaviour
     {
         fps.text = (1 / Time.smoothDeltaTime).ToString();
         //add random pickups at level start
-
-        //respawn pickup
     }
 
     private void OnTriggerEnter(Collider col)
@@ -35,12 +35,13 @@ public class GameInfo : MonoBehaviour
             if (!hasPickup)
             {
                 //get random pickup
-                pick = GetPickup();
-                Debug.Log("pick");
+                currentPick = GetPickup();
+                imagePick.texture = currentPick.texture;
+                Debug.Log("pick " + currentPick.name);
 
                 //show in UI
 
-                //destroy pickup object
+                //destroy pickup object and respawn it
                 respawnPosition = col.gameObject.transform.position;
                 StartCoroutine(RespawnPickup(pickup, respawnPosition));
                 Destroy(col.gameObject);
@@ -55,22 +56,20 @@ public class GameInfo : MonoBehaviour
         Instantiate(obj, position, new Quaternion(0, 0, 0, 0));
     }
 
-    private PickUps GetPickup()
+    private PickupInfo GetPickup()
     {
-        //cast enum to list
-        List<PickUps> pickups = Enum.GetValues(typeof(PickUps)).Cast<PickUps>().ToList();
-
         //get random pickup
         System.Random random = new System.Random();
-        int index = random.Next(0, pickups.Count);
-        return pickups[index];
+        int index = random.Next(0, pickupsData.Length);
+        return pickupsData[index];
     }
 
     public void ActivatePickUp()
     {
         if (hasPickup)
         {
-            Debug.Log("Activating" + pick);
+            Debug.Log("Activating" + currentPick.name);
+            imagePick.texture = null;
             hasPickup = false;
         }
     }

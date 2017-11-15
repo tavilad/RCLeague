@@ -1,12 +1,8 @@
 ﻿using UnityEngine;
 
+[CreateAssetMenu(fileName = "Data", menuName = "PickUps", order = 1)]
 public class PickupInfo : ScriptableObject
 {
-    private void Start()
-    {
-    }
-
-    private void Update()
-    {
-    }
+    public string objectName;
+    public Texture texture;
 }
