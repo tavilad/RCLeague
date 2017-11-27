@@ -56,7 +56,7 @@ public class ButtonScript : MonoBehaviour
 
     public void jump(Rigidbody rb)
     {
-        Movement.Jump(rb);
+        Movement.Jump(rb, 40);
     }
 
     public void onPointerDown(GameObject obj)

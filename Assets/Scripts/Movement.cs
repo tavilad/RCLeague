@@ -28,7 +28,12 @@ public class Movement : MonoBehaviour
         if (Application.platform == RuntimePlatform.Android)
         {
             //Debug.Log("Android");
+            foreach (WheelCollider wheel in wheelcolliders)
+            {
+                wheel.motorTorque = maxTorque;
+            }
         }
+
         if (Application.platform == RuntimePlatform.WindowsPlayer)
         {
             //Debug.Log("pc");
@@ -53,9 +58,14 @@ public class Movement : MonoBehaviour
 
             if (Input.GetKey(KeyCode.Space))
             {
-                Movement.Jump(rigidbody);
+                Jump(rigidbody, 15);
+            }
+            foreach (WheelCollider wheel in wheelcolliders)
+            {
+                wheel.motorTorque = maxTorque * Input.GetAxis("Vertical");
             }
         }
+
         if (Application.platform == RuntimePlatform.WindowsEditor)
         {
             //Debug.Log("editor");
@@ -80,13 +90,13 @@ public class Movement : MonoBehaviour
 
             if (Input.GetKey(KeyCode.Space))
             {
-                Jump(rigidbody);
+                Jump(rigidbody, 15);
             }
-        }
 
-        foreach (WheelCollider wheel in wheelcolliders)
-        {
-            wheel.motorTorque = maxTorque;
+            foreach (WheelCollider wheel in wheelcolliders)
+            {
+                wheel.motorTorque = maxTorque * Input.GetAxis("Vertical");
+            }
         }
 
         if (Input.GetKey(KeyCode.R))
@@ -109,11 +119,11 @@ public class Movement : MonoBehaviour
         wheels[1].steerAngle = steer;
     }
 
-    public static void Jump(Rigidbody rb)
+    public static void Jump(Rigidbody rb, float jumpForce)
     {
         if (GameObjectUtil.isGrounded(rb.transform))
         {
-            rb.AddForce(new Vector3(0, 20, 0), ForceMode.Impulse);
+            rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
             Debug.Log("Jumped");
         }
     }
