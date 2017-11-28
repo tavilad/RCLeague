@@ -123,7 +123,8 @@ public class Movement : MonoBehaviour
     {
         if (GameObjectUtil.isGrounded(rb.transform))
         {
-            rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            //rb.velocity = Vector3.up * jumpForce;
             Debug.Log("Jumped");
         }
     }

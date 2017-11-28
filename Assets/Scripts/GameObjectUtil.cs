@@ -23,12 +23,19 @@ namespace Assets
 
         public static void flip(Transform transform)
         {
-            RaycastHit hit;
-            print(isGrounded(transform) + " " + transform.localRotation.x + " " + transform.localRotation.z);
+            //RaycastHit hit;
+            //print(isGrounded(transform) + " " + transform.localRotation.x + " " + transform.localRotation.z);
 
-            if (Physics.Raycast(transform.position, Vector3.down, out hit, distanceToGround + 0.1f))
+            //if (Physics.Raycast(transform.position, Vector3.down, out hit, distanceToGround + 0.1f))
+            //{
+            //    transform.position = hit.point + new Vector3(0f, 2f, 0f);
+            //    transform.rotation = Quaternion.Euler(defaultRotation);
+            //}
+
+            if (Vector3.Dot(transform.up, Vector3.down) > 0)
             {
-                transform.position = hit.point + new Vector3(0f, 2f, 0f);
+                Debug.Log("flip");
+                transform.position += new Vector3(0f, 2f, 0f);
                 transform.rotation = Quaternion.Euler(defaultRotation);
             }
         }
