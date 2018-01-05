@@ -8,7 +8,7 @@ public class ButtonScript : MonoBehaviour
     public bool isPressedLeft;
     public bool isPressedRight;
 
-    public GameObject obj;
+    public static GameObject car;
     private Movement movement;
     public WheelCollider[] wheels = new WheelCollider[2];
     public float steerAngle;
@@ -16,7 +16,8 @@ public class ButtonScript : MonoBehaviour
 
     private void Start()
     {
-        movement = obj.GetComponent<Movement>();
+        movement = car.GetComponent<Movement>();
+
         if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
         {
             //canvas.enabled = false;

@@ -2,7 +2,7 @@
 
 public class CameraMovement : MonoBehaviour
 {
-    public Transform target;
+    public static Transform target;
 
     public float distance = 10.0f;
 

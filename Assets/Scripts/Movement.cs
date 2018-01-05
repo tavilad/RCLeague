@@ -1,5 +1,6 @@
 ﻿using Assets;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class Movement : MonoBehaviour
 {
@@ -8,101 +9,122 @@ public class Movement : MonoBehaviour
     public Transform centerOfMass;
     public WheelCollider[] wheelcolliders = new WheelCollider[4];
     public Transform[] tireMeshes = new Transform[4];
+
+
+
+
     private new Rigidbody rigidbody;
     private GameInfo info;
+    private NetworkView netView;
+
+
+    private float lastSynchronizationTime = 0f;
+    private float syncDelay = 0f;
+    private float syncTime = 0f;
+    private Vector3 syncStartPosition;
+    private Vector3 syncEndPosition;
+
+    
 
     public void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
         rigidbody.centerOfMass = centerOfMass.localPosition;
         info = transform.GetComponent<GameInfo>();
+        netView = transform.GetComponent<NetworkView>();
     }
 
-    private void Update()
-    {
-        UpdateTireMeshPosition();
-    }
+    
 
     private void FixedUpdate()
     {
-        if (Application.platform == RuntimePlatform.Android)
+        if (netView.isMine)
         {
-            //Debug.Log("Android");
-            foreach (WheelCollider wheel in wheelcolliders)
+            if (Application.platform == RuntimePlatform.Android)
             {
-                wheel.motorTorque = maxTorque;
+                //Debug.Log("Android");
+                //foreach (WheelCollider wheel in wheelcolliders)
+                //{
+                //    wheel.motorTorque = maxTorque;
+                //}
             }
-        }
 
-        if (Application.platform == RuntimePlatform.WindowsPlayer)
-        {
-            //Debug.Log("pc");
-            wheelcolliders[0].steerAngle = maxSteerAngle * Input.GetAxis("Horizontal");
-            wheelcolliders[1].steerAngle = maxSteerAngle * Input.GetAxis("Horizontal");
-            if (transform.position.y < -2 || Input.GetKey(KeyCode.R))
+            if (Application.platform == RuntimePlatform.WindowsPlayer)
+            {
+                //Debug.Log("pc");
+                wheelcolliders[0].steerAngle = maxSteerAngle * Input.GetAxis("Horizontal");
+                wheelcolliders[1].steerAngle = maxSteerAngle * Input.GetAxis("Horizontal");
+                if (transform.position.y < -2 || Input.GetKey(KeyCode.R))
+                {
+                    GameObjectUtil.respawn(transform);
+                }
+
+                if (Input.GetKey(KeyCode.F))
+                {
+                    if (info != null)
+                    {
+                        info.ActivatePickUp();
+                    }
+                    else
+                    {
+                        print("cant find component");
+                    }
+                }
+
+                if (Input.GetKey(KeyCode.Space))
+                {
+                    Jump(rigidbody, 15);
+                }
+                foreach (WheelCollider wheel in wheelcolliders)
+                {
+                    wheel.motorTorque = maxTorque * Input.GetAxis("Vertical");
+                }
+            }
+
+            if (Application.platform == RuntimePlatform.WindowsEditor)
+            {
+                //Debug.Log("editor");
+                wheelcolliders[0].steerAngle = maxSteerAngle * Input.GetAxis("Horizontal");
+                wheelcolliders[1].steerAngle = maxSteerAngle * Input.GetAxis("Horizontal");
+                if (transform.position.y < -2 || Input.GetKey(KeyCode.R))
+                {
+                    GameObjectUtil.respawn(transform);
+                }
+
+                if (Input.GetKey(KeyCode.F))
+                {
+                    if (info != null)
+                    {
+                        info.ActivatePickUp();
+                    }
+                    else
+                    {
+                        print("cant find component");
+                    }
+                }
+
+                if (Input.GetKey(KeyCode.Space))
+                {
+                    Jump(rigidbody, 15);
+                }
+
+                foreach (WheelCollider wheel in wheelcolliders)
+                {
+                    wheel.motorTorque = maxTorque * Input.GetAxis("Vertical");
+                }
+            }
+            if (Input.GetKey(KeyCode.R))
             {
                 GameObjectUtil.respawn(transform);
             }
-
-            if (Input.GetKey(KeyCode.F))
-            {
-                if (info != null)
-                {
-                    info.ActivatePickUp();
-                }
-                else
-                {
-                    print("cant find component");
-                }
-            }
-
-            if (Input.GetKey(KeyCode.Space))
-            {
-                Jump(rigidbody, 15);
-            }
-            foreach (WheelCollider wheel in wheelcolliders)
-            {
-                wheel.motorTorque = maxTorque * Input.GetAxis("Vertical");
-            }
         }
-
-        if (Application.platform == RuntimePlatform.WindowsEditor)
+        else
         {
-            //Debug.Log("editor");
-            wheelcolliders[0].steerAngle = maxSteerAngle * Input.GetAxis("Horizontal");
-            wheelcolliders[1].steerAngle = maxSteerAngle * Input.GetAxis("Horizontal");
-            if (transform.position.y < -2 || Input.GetKey(KeyCode.R))
-            {
-                GameObjectUtil.respawn(transform);
-            }
-
-            if (Input.GetKey(KeyCode.F))
-            {
-                if (info != null)
-                {
-                    info.ActivatePickUp();
-                }
-                else
-                {
-                    print("cant find component");
-                }
-            }
-
-            if (Input.GetKey(KeyCode.Space))
-            {
-                Jump(rigidbody, 15);
-            }
-
-            foreach (WheelCollider wheel in wheelcolliders)
-            {
-                wheel.motorTorque = maxTorque * Input.GetAxis("Vertical");
-            }
+            Destroy(this);
+            SyncedMovement();
         }
 
-        if (Input.GetKey(KeyCode.R))
-        {
-            GameObjectUtil.respawn(transform);
-        }
+        
     }
 
     public void MoveLeft(WheelCollider[] wheels, float steer)
@@ -124,22 +146,41 @@ public class Movement : MonoBehaviour
         if (GameObjectUtil.isGrounded(rb.transform))
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            //rb.velocity = Vector3.up * jumpForce;
             Debug.Log("Jumped");
         }
     }
 
-    public void UpdateTireMeshPosition()
+
+
+
+    void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info)
     {
-        for (int i = 0; i < tireMeshes.Length; i++)
+        Vector3 syncPosition = rigidbody.position;
+        if (stream.isWriting)
         {
-            Vector3 position;
-            Quaternion rotation;
+            syncPosition = rigidbody.position;
+            stream.Serialize(ref syncPosition);
+        }
+        else
+        {
+            stream.Serialize(ref syncPosition);
 
-            wheelcolliders[i].GetWorldPose(out position, out rotation);
+            syncTime = 0f;
+            syncDelay = Time.time - lastSynchronizationTime;
+            lastSynchronizationTime = Time.time;
 
-            tireMeshes[i].position = position;
-            tireMeshes[i].rotation = rotation;
+            syncStartPosition = rigidbody.position;
+            syncEndPosition = syncPosition;
         }
     }
+
+
+    private void SyncedMovement()
+    {
+        syncTime += Time.deltaTime;
+        rigidbody.position = Vector3.Lerp(syncStartPosition, syncEndPosition, syncTime / syncDelay);
+        transform.position = Vector3.Lerp(syncStartPosition, syncEndPosition, syncTime / syncDelay);
+    }
+
+
 }

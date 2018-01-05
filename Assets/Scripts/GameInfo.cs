@@ -8,22 +8,32 @@ using UnityEngine.UI;
 public class GameInfo : MonoBehaviour
 {
     private bool hasPickup;
-    public Text fps;
+
+    //public Text fps;
     private float respawnTime = 5f;
+
     private Vector3 respawnPosition;
     public GameObject pickup;
     public PickupInfo[] pickupsData;
-    public RawImage imagePick;
+    public static RawImage imagePick;
     private PickupInfo currentPick;
+    private NetworkView netView;
+    //public Transform[] spawnPoints;
 
     private void Start()
     {
-        hasPickup = false;
+        netView = transform.GetComponent<NetworkView>();
+        if (netView.isMine)
+        {
+            hasPickup = false;
+            //transform.position = spawnPoints[0].position;
+            imagePick.gameObject.SetActive(false);
+        }
     }
 
     private void Update()
     {
-        fps.text = (1 / Time.smoothDeltaTime).ToString();
+        //fps.text = (1 / Time.smoothDeltaTime).ToString();
         //add random pickups at level start
     }
 
@@ -31,8 +41,9 @@ public class GameInfo : MonoBehaviour
     {
         if (col.gameObject.tag == "PickUp")
         {
-            if (!hasPickup)
+            if (!hasPickup && netView.isMine)
             {
+                imagePick.gameObject.SetActive(true);
                 //get random pickup
                 currentPick = GetPickup();
                 imagePick.texture = currentPick.texture;
@@ -41,18 +52,22 @@ public class GameInfo : MonoBehaviour
                 //show in UI
 
                 //destroy pickup object and respawn it
-                respawnPosition = col.gameObject.transform.position;
-                StartCoroutine(RespawnPickup(pickup, respawnPosition));
-                Destroy(col.gameObject);
+
+                //StartCoroutine(RespawnPickup(pickup, respawnPosition));
+
                 hasPickup = true;
             }
+            respawnPosition = col.gameObject.transform.position;
+            StartCoroutine(RespawnPickup(pickup, respawnPosition));
+            Network.Destroy(col.gameObject);
+            Debug.Log(hasPickup);
         }
     }
 
     private IEnumerator RespawnPickup(GameObject obj, Vector3 position)
     {
         yield return new WaitForSeconds(respawnTime);
-        Instantiate(obj, position, new Quaternion(0, 0, 0, 0));
+        Network.Instantiate(obj, position, new Quaternion(0, 0, 0, 0), 0);
     }
 
     private PickupInfo GetPickup()
@@ -65,10 +80,11 @@ public class GameInfo : MonoBehaviour
 
     public void ActivatePickUp()
     {
-        if (hasPickup)
+        if (hasPickup && netView.isMine)
         {
             Debug.Log("Activating" + currentPick.name);
             imagePick.texture = null;
+            imagePick.gameObject.SetActive(false);
             hasPickup = false;
         }
     }
