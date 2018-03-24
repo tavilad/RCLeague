@@ -3,26 +3,44 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class GameInfo : MonoBehaviour
 {
+
+    #region Variables
     private bool hasPickup;
 
-    //public Text fps;
+   
     private float respawnTime = 5f;
 
     private Vector3 respawnPosition;
-    public GameObject pickup;
+    public GameObject pickupPrefab;
     public PickupInfo[] pickupsData;
     public static RawImage imagePick;
     private PickupInfo currentPick;
     private NetworkView netView;
-    //public Transform[] spawnPoints;
+    public GameObject trails;
+
+
+    private Movement movement;
+   
+
+    public float explosionPower=3000f;
+    public float explosionRadius=1000f;
+
+    private Rigidbody rb;
+
+    #endregion
 
     private void Start()
     {
+        movement = transform.GetComponent<Movement>();
         netView = transform.GetComponent<NetworkView>();
+        rb = transform.GetComponent<Rigidbody>();
+
+
         if (netView.isMine)
         {
             hasPickup = false;
@@ -31,36 +49,34 @@ public class GameInfo : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        //fps.text = (1 / Time.smoothDeltaTime).ToString();
-        //add random pickups at level start
-    }
-
+    #region PickUp Handling
     private void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.tag == "PickUp")
+        if (netView.isMine)
         {
-            if (!hasPickup && netView.isMine)
+            if (col.gameObject.tag == "PickUp")
             {
-                imagePick.gameObject.SetActive(true);
-                //get random pickup
-                currentPick = GetPickup();
-                imagePick.texture = currentPick.texture;
-                Debug.Log("pick " + currentPick.name);
+                if (!hasPickup)
+                {
+                    imagePick.gameObject.SetActive(true);
+                    //get random pickup
+                    currentPick = GetPickup();
+                    imagePick.texture = currentPick.texture;
+                    Debug.Log("pick " + currentPick.name);
 
-                //show in UI
+                    //show in UI
 
-                //destroy pickup object and respawn it
+                    //destroy pickup object and respawn it
 
-                //StartCoroutine(RespawnPickup(pickup, respawnPosition));
+                    //StartCoroutine(RespawnPickup(pickup, respawnPosition));
 
-                hasPickup = true;
+                    hasPickup = true;
+                    respawnPosition = col.gameObject.transform.position;
+                    StartCoroutine(RespawnPickup(pickupPrefab, respawnPosition));
+                    Network.Destroy(col.gameObject);
+                }   
+                Debug.Log(hasPickup);
             }
-            respawnPosition = col.gameObject.transform.position;
-            StartCoroutine(RespawnPickup(pickup, respawnPosition));
-            Network.Destroy(col.gameObject);
-            Debug.Log(hasPickup);
         }
     }
 
@@ -68,6 +84,16 @@ public class GameInfo : MonoBehaviour
     {
         yield return new WaitForSeconds(respawnTime);
         Network.Instantiate(obj, position, new Quaternion(0, 0, 0, 0), 0);
+    }
+
+
+    private IEnumerator ActivateBattery(float speedBonus)
+    {
+        trails.SetActive(true);
+        movement.maxTorque += speedBonus;
+        yield return new WaitForSeconds(10);
+        movement.maxTorque -= speedBonus;
+        trails.SetActive(false);
     }
 
     private PickupInfo GetPickup()
@@ -82,10 +108,28 @@ public class GameInfo : MonoBehaviour
     {
         if (hasPickup && netView.isMine)
         {
-            Debug.Log("Activating" + currentPick.name);
+            switch (currentPick.name)
+            {
+                case "Battery":
+                    Debug.Log("Activating " + currentPick.name);
+                    StartCoroutine(ActivateBattery(50));
+                    Debug.Log("Battery ended");
+                    break;
+                case "Rocket":
+                    Debug.Log("Activating " + currentPick.name);
+                    break;
+                case "Bomb":
+                    Debug.Log("Activating " + currentPick.name);
+                    rb.AddExplosionForce(explosionPower,transform.position,explosionRadius);
+                    Debug.Log("Explosion");
+                    break;
+            }
             imagePick.texture = null;
             imagePick.gameObject.SetActive(false);
             hasPickup = false;
         }
     }
+
+
+    #endregion
 }

@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="74c81be0-3355-4ee3-8794-c2126aa6e5fb" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/CloudyCrown_Midday.mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/CloudyCrown_Midday.mat.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures/CloudyCrown_Midday_Back.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures/CloudyCrown_Midday_Back.png.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures/CloudyCrown_Midday_Down.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures/CloudyCrown_Midday_Down.png.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures/CloudyCrown_Midday_Front.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures/CloudyCrown_Midday_Front.png.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures/CloudyCrown_Midday_Left.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures/CloudyCrown_Midday_Left.png.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures/CloudyCrown_Midday_Right.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures/CloudyCrown_Midday_Right.png.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures/CloudyCrown_Midday_Up.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures/CloudyCrown_Midday_Up.png.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/CloudyCrown_Evening.mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/CloudyCrown_Evening.mat.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/Textures.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/Textures/CloudyCrown_Evening_Back.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/Textures/CloudyCrown_Evening_Back.png.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/Textures/CloudyCrown_Evening_Down.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/Textures/CloudyCrown_Evening_Down.png.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/Textures/CloudyCrown_Evening_Front.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/Textures/CloudyCrown_Evening_Front.png.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/Textures/CloudyCrown_Evening_Left.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/Textures/CloudyCrown_Evening_Left.png.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/Textures/CloudyCrown_Evening_Right.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/Textures/CloudyCrown_Evening_Right.png.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/Textures/CloudyCrown_Evening_Up.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/Textures/CloudyCrown_Evening_Up.png.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_03_Midnight.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_03_Midnight/CloudyCrown_Midnight.mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_03_Midnight/CloudyCrown_Midnight.mat.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_03_Midnight/Textures.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_03_Midnight/Textures/CloudyCrown_Midnight_Back.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_03_Midnight/Textures/CloudyCrown_Midnight_Back.png.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_03_Midnight/Textures/CloudyCrown_Midnight_Down.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_03_Midnight/Textures/CloudyCrown_Midnight_Down.png.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_03_Midnight/Textures/CloudyCrown_Midnight_Front.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_03_Midnight/Textures/CloudyCrown_Midnight_Front.png.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_03_Midnight/Textures/CloudyCrown_Midnight_Left.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_03_Midnight/Textures/CloudyCrown_Midnight_Left.png.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_03_Midnight/Textures/CloudyCrown_Midnight_Right.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_03_Midnight/Textures/CloudyCrown_Midnight_Right.png.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_03_Midnight/Textures/CloudyCrown_Midnight_Up.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_03_Midnight/Textures/CloudyCrown_Midnight_Up.png.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_04_Sunset.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_04_Sunset/CloudyCrown_Sunset.mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_04_Sunset/CloudyCrown_Sunset.mat.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_04_Sunset/Textures.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_04_Sunset/Textures/CloudyCrown_Sunset_Back.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_04_Sunset/Textures/CloudyCrown_Sunset_Back.png.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_04_Sunset/Textures/CloudyCrown_Sunset_Down.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_04_Sunset/Textures/CloudyCrown_Sunset_Down.png.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_04_Sunset/Textures/CloudyCrown_Sunset_Front.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_04_Sunset/Textures/CloudyCrown_Sunset_Front.png.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_04_Sunset/Textures/CloudyCrown_Sunset_Left.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_04_Sunset/Textures/CloudyCrown_Sunset_Left.png.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_04_Sunset/Textures/CloudyCrown_Sunset_Right.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_04_Sunset/Textures/CloudyCrown_Sunset_Right.png.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_04_Sunset/Textures/CloudyCrown_Sunset_Up.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_04_Sunset/Textures/CloudyCrown_Sunset_Up.png.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_05_Daybreak.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_05_Daybreak/CloudyCrown_Daybreak.mat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_05_Daybreak/CloudyCrown_Daybreak.mat.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_05_Daybreak/Textures.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_05_Daybreak/Textures/CloudyCrown_Daybreak_Back.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_05_Daybreak/Textures/CloudyCrown_Daybreak_Back.png.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_05_Daybreak/Textures/CloudyCrown_Daybreak_Down.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_05_Daybreak/Textures/CloudyCrown_Daybreak_Down.png.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_05_Daybreak/Textures/CloudyCrown_Daybreak_Front.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_05_Daybreak/Textures/CloudyCrown_Daybreak_Front.png.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_05_Daybreak/Textures/CloudyCrown_Daybreak_Left.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_05_Daybreak/Textures/CloudyCrown_Daybreak_Left.png.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_05_Daybreak/Textures/CloudyCrown_Daybreak_Right.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_05_Daybreak/Textures/CloudyCrown_Daybreak_Right.png.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_05_Daybreak/Textures/CloudyCrown_Daybreak_Up.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/FarlandSkies/Skyboxes/CloudyCrown_05_Daybreak/Textures/CloudyCrown_Daybreak_Up.png.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Bottom_Brad.mat" afterPath="$PROJECT_DIR$/Assets/Materials/Bottom_Brad.mat" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Top_brad.mat" afterPath="$PROJECT_DIR$/Assets/Materials/Top_brad.mat" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Car.prefab" afterPath="$PROJECT_DIR$/Assets/Prefabs/Car.prefab" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/LapManager.prefab" afterPath="$PROJECT_DIR$/Assets/Prefabs/LapManager.prefab" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/TouchManager.prefab" afterPath="$PROJECT_DIR$/Assets/Prefabs/TouchManager.prefab" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/OvalTrack.unity" afterPath="$PROJECT_DIR$/Assets/Scenes/OvalTrack.unity" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/test.unity" afterPath="$PROJECT_DIR$/Assets/Scenes/test.unity" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ButtonScript.cs" afterPath="$PROJECT_DIR$/Assets/Scripts/ButtonScript.cs" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameInfo.cs" afterPath="$PROJECT_DIR$/Assets/Scripts/GameInfo.cs" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LapManager.cs" afterPath="$PROJECT_DIR$/Assets/Scripts/LapManager.cs" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Movement.cs" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement.cs" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NetworkManager.cs" afterPath="$PROJECT_DIR$/Assets/Scripts/NetworkManager.cs" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="GameInfo.cs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameInfo.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1691">
+              <caret line="95" column="30" lean-forward="false" selection-start-line="95" selection-start-column="30" selection-end-line="95" selection-end-column="30" />
+              <folding>
+                <marker date="1521924975441" expanded="false" signature="6:165" ph="..." />
+                <marker date="1521924975441" expanded="true" signature="204:3724" ph="{...}" />
+                <marker date="1521924975441" expanded="true" signature="212:706" ph="Variables" />
+                <marker date="1521924975441" expanded="true" signature="732:1098" ph="{...}" />
+                <marker date="1521924975441" expanded="true" signature="930:1092" ph="{...}" />
+                <marker date="1521924975441" expanded="true" signature="1104:3722" ph="PickUp Handling" />
+                <marker date="1521924975441" expanded="true" signature="1173:2103" ph="{...}" />
+                <marker date="1521924975441" expanded="true" signature="1207:2097" ph="{...}" />
+                <marker date="1521924975441" expanded="true" signature="1265:2087" ph="{...}" />
+                <marker date="1521924975441" expanded="true" signature="1311:2032" ph="{...}" />
+                <marker date="1521924975441" expanded="true" signature="1616:1767" ph="/* show in UI ... */" />
+                <marker date="1521924975441" expanded="true" signature="2176:2317" ph="{...}" />
+                <marker date="1521924975441" expanded="true" signature="2377:2583" ph="{...}" />
+                <marker date="1521924975441" expanded="true" signature="2619:2802" ph="{...}" />
+                <marker date="1521924975441" expanded="true" signature="2836:3705" ph="{...}" />
+                <marker date="1521924975441" expanded="true" signature="2883:3699" ph="{...}" />
+                <marker date="1521924975441" expanded="true" signature="2931:3569" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Movement.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Movement.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <folding>
+                <marker date="1521728574954" expanded="false" signature="6:62" ph="..." />
+                <marker date="1521728574954" expanded="false" signature="104:375" ph="Car Stats" />
+                <marker date="1521728574954" expanded="false" signature="482:734" ph="SyncVariables" />
+                <marker date="1521728574954" expanded="true" signature="764:992" ph="{...}" />
+                <marker date="1521728574954" expanded="true" signature="1030:3737" ph="{...}" />
+                <marker date="1521728574954" expanded="true" signature="1064:3631" ph="{...}" />
+                <marker date="1521728574954" expanded="true" signature="1139:1318" ph="{...}" />
+                <marker date="1521728574954" expanded="true" signature="1217:1304" ph="{...}" />
+                <marker date="1521728574954" expanded="true" signature="1390:2411" ph="{...}" />
+                <marker date="1521728574954" expanded="true" signature="1662:1753" ph="{...}" />
+                <marker date="1521728574954" expanded="true" signature="1799:2087" ph="{...}" />
+                <marker date="1521728574954" expanded="true" signature="1855:1946" ph="{...}" />
+                <marker date="1521728574954" expanded="true" signature="1971:2069" ph="{...}" />
+                <marker date="1521728574954" expanded="true" signature="2141:2218" ph="{...}" />
+                <marker date="1521728574954" expanded="true" signature="2282:2397" ph="{...}" />
+                <marker date="1521728574954" expanded="true" signature="2483:3501" ph="{...}" />
+                <marker date="1521728574954" expanded="true" signature="2755:2846" ph="{...}" />
+                <marker date="1521728574954" expanded="true" signature="2892:3180" ph="{...}" />
+                <marker date="1521728574954" expanded="true" signature="2948:3039" ph="{...}" />
+                <marker date="1521728574954" expanded="true" signature="3064:3162" ph="{...}" />
+                <marker date="1521728574954" expanded="true" signature="3230:3307" ph="{...}" />
+                <marker date="1521728574954" expanded="true" signature="3372:3487" ph="{...}" />
+                <marker date="1521728574954" expanded="true" signature="3542:3621" ph="{...}" />
+                <marker date="1521728574954" expanded="true" signature="3644:3721" ph="{...}" />
+                <marker date="1521728574954" expanded="true" signature="3800:3912" ph="{...}" />
+                <marker date="1521728574954" expanded="true" signature="3976:4087" ph="{...}" />
+                <marker date="1521728574954" expanded="true" signature="4147:4333" ph="{...}" />
+                <marker date="1521728574954" expanded="true" signature="4206:4327" ph="{...}" />
+                <marker date="1521728574954" expanded="true" signature="4412:4936" ph="{...}" />
+                <marker date="1521728574954" expanded="true" signature="4499:4614" ph="{...}" />
+                <marker date="1521728574954" expanded="true" signature="4627:4930" ph="{...}" />
+                <marker date="1521728574954" expanded="true" signature="4972:5222" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AntiRollBar.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/AntiRollBar.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1510144697198" expanded="false" signature="6:78" ph="..." />
+                <marker date="1510144697198" expanded="true" signature="120:1608" ph="{...}" />
+                <marker date="1510144697198" expanded="true" signature="281:333" ph="{...}" />
+                <marker date="1510144697198" expanded="true" signature="364:1606" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PickupTween.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/PickupTween.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="14" column="30" lean-forward="false" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+              <folding>
+                <marker date="1521924190730" expanded="false" signature="6:97" ph="..." />
+                <marker date="1521924190730" expanded="true" signature="139:531" ph="{...}" />
+                <marker date="1521924190730" expanded="true" signature="164:523" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Movement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/AntiRollBar.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Demigiant/DOTween/Examples/Sequences.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameInfo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PickupTween.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Scripts/Movement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PickupTween.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameInfo.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="240" />
+    <option name="y" value="130" />
+    <option name="width" value="1440" />
+    <option name="height" value="780" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="SolutionExplorer" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="SolutionExplorer">
+        <subPane>
+          <expand>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="UnityPractice (2 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <option name="show-file-system" value="false" />
+        <option name="show-all-items" value="false" />
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="74c81be0-3355-4ee3-8794-c2126aa6e5fb" name="Default" comment="" />
+      <created>1521714548292</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1521714548292</updated>
+      <workItem from="1521714579348" duration="427000" />
+      <workItem from="1521727824717" duration="2050000" />
+      <workItem from="1521922290017" duration="2583000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="5060000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
+    <editor active="true" />
+    <layout>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Errors In Solution" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Unit Tests" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="NuGet" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18541667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameInfo.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1521924975441" expanded="false" signature="6:165" ph="..." />
+            <marker date="1521924975441" expanded="true" signature="204:3724" ph="{...}" />
+            <marker date="1521924975441" expanded="true" signature="212:706" ph="Variables" />
+            <marker date="1521924975441" expanded="true" signature="732:1098" ph="{...}" />
+            <marker date="1521924975441" expanded="true" signature="930:1092" ph="{...}" />
+            <marker date="1521924975441" expanded="true" signature="1104:3722" ph="PickUp Handling" />
+            <marker date="1521924975441" expanded="true" signature="1173:2103" ph="{...}" />
+            <marker date="1521924975441" expanded="true" signature="1207:2097" ph="{...}" />
+            <marker date="1521924975441" expanded="true" signature="1265:2087" ph="{...}" />
+            <marker date="1521924975441" expanded="true" signature="1311:2032" ph="{...}" />
+            <marker date="1521924975441" expanded="true" signature="1616:1767" ph="/* show in UI ... */" />
+            <marker date="1521924975441" expanded="true" signature="2176:2317" ph="{...}" />
+            <marker date="1521924975441" expanded="true" signature="2377:2583" ph="{...}" />
+            <marker date="1521924975441" expanded="true" signature="2619:2802" ph="{...}" />
+            <marker date="1521924975441" expanded="true" signature="2836:3705" ph="{...}" />
+            <marker date="1521924975441" expanded="true" signature="2883:3699" ph="{...}" />
+            <marker date="1521924975441" expanded="true" signature="2931:3569" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Movement.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding>
+            <marker date="1521728574954" expanded="false" signature="6:62" ph="..." />
+            <marker date="1521728574954" expanded="false" signature="104:375" ph="Car Stats" />
+            <marker date="1521728574954" expanded="false" signature="482:734" ph="SyncVariables" />
+            <marker date="1521728574954" expanded="true" signature="764:992" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="1030:3737" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="1064:3631" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="1139:1318" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="1217:1304" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="1390:2411" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="1662:1753" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="1799:2087" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="1855:1946" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="1971:2069" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="2141:2218" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="2282:2397" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="2483:3501" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="2755:2846" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="2892:3180" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="2948:3039" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="3064:3162" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="3230:3307" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="3372:3487" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="3542:3621" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="3644:3721" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="3800:3912" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="3976:4087" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="4147:4333" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="4206:4327" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="4412:4936" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="4499:4614" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="4627:4930" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="4972:5222" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/AntiRollBar.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1510144697198" expanded="false" signature="6:78" ph="..." />
+            <marker date="1510144697198" expanded="true" signature="120:1608" ph="{...}" />
+            <marker date="1510144697198" expanded="true" signature="281:333" ph="{...}" />
+            <marker date="1510144697198" expanded="true" signature="364:1606" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameInfo.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1521924975441" expanded="false" signature="6:165" ph="..." />
+            <marker date="1521924975441" expanded="true" signature="204:3724" ph="{...}" />
+            <marker date="1521924975441" expanded="true" signature="212:706" ph="Variables" />
+            <marker date="1521924975441" expanded="true" signature="732:1098" ph="{...}" />
+            <marker date="1521924975441" expanded="true" signature="930:1092" ph="{...}" />
+            <marker date="1521924975441" expanded="true" signature="1104:3722" ph="PickUp Handling" />
+            <marker date="1521924975441" expanded="true" signature="1173:2103" ph="{...}" />
+            <marker date="1521924975441" expanded="true" signature="1207:2097" ph="{...}" />
+            <marker date="1521924975441" expanded="true" signature="1265:2087" ph="{...}" />
+            <marker date="1521924975441" expanded="true" signature="1311:2032" ph="{...}" />
+            <marker date="1521924975441" expanded="true" signature="1616:1767" ph="/* show in UI ... */" />
+            <marker date="1521924975441" expanded="true" signature="2176:2317" ph="{...}" />
+            <marker date="1521924975441" expanded="true" signature="2377:2583" ph="{...}" />
+            <marker date="1521924975441" expanded="true" signature="2619:2802" ph="{...}" />
+            <marker date="1521924975441" expanded="true" signature="2836:3705" ph="{...}" />
+            <marker date="1521924975441" expanded="true" signature="2883:3699" ph="{...}" />
+            <marker date="1521924975441" expanded="true" signature="2931:3569" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Movement.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding>
+            <marker date="1521728574954" expanded="false" signature="6:62" ph="..." />
+            <marker date="1521728574954" expanded="false" signature="104:375" ph="Car Stats" />
+            <marker date="1521728574954" expanded="false" signature="482:734" ph="SyncVariables" />
+            <marker date="1521728574954" expanded="true" signature="764:992" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="1030:3737" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="1064:3631" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="1139:1318" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="1217:1304" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="1390:2411" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="1662:1753" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="1799:2087" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="1855:1946" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="1971:2069" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="2141:2218" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="2282:2397" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="2483:3501" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="2755:2846" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="2892:3180" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="2948:3039" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="3064:3162" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="3230:3307" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="3372:3487" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="3542:3621" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="3644:3721" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="3800:3912" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="3976:4087" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="4147:4333" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="4206:4327" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="4412:4936" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="4499:4614" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="4627:4930" ph="{...}" />
+            <marker date="1521728574954" expanded="true" signature="4972:5222" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/AntiRollBar.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1510144697198" expanded="false" signature="6:78" ph="..." />
+            <marker date="1510144697198" expanded="true" signature="120:1608" ph="{...}" />
+            <marker date="1510144697198" expanded="true" signature="281:333" ph="{...}" />
+            <marker date="1510144697198" expanded="true" signature="364:1606" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Demigiant/DOTween/Examples/Sequences.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="2" column="18" lean-forward="false" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+          <folding>
+            <marker date="1503826175000" expanded="false" signature="6:63" ph="..." />
+            <marker date="1503826175000" expanded="true" signature="103:1398" ph="{...}" />
+            <marker date="1503826175000" expanded="true" signature="146:1396" ph="{...}" />
+            <marker date="1503826175000" expanded="true" signature="152:610" ph="/* FIRST OF ALL, note this! ... */" />
+            <marker date="1503826175000" expanded="true" signature="1056:1189" ph="/* Add an X axis relative move tween that will start from the beginning of the Sequence ... */" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/PickupTween.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="14" column="30" lean-forward="false" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+          <folding>
+            <marker date="1521924190730" expanded="false" signature="6:97" ph="..." />
+            <marker date="1521924190730" expanded="true" signature="139:531" ph="{...}" />
+            <marker date="1521924190730" expanded="true" signature="164:523" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameInfo.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1691">
+          <caret line="95" column="30" lean-forward="false" selection-start-line="95" selection-start-column="30" selection-end-line="95" selection-end-column="30" />
+          <folding>
+            <marker date="1521924975441" expanded="false" signature="6:165" ph="..." />
+            <marker date="1521924975441" expanded="true" signature="204:3724" ph="{...}" />
+            <marker date="1521924975441" expanded="true" signature="212:706" ph="Variables" />
+            <marker date="1521924975441" expanded="true" signature="732:1098" ph="{...}" />
+            <marker date="1521924975441" expanded="true" signature="930:1092" ph="{...}" />
+            <marker date="1521924975441" expanded="true" signature="1104:3722" ph="PickUp Handling" />
+            <marker date="1521924975441" expanded="true" signature="1173:2103" ph="{...}" />
+            <marker date="1521924975441" expanded="true" signature="1207:2097" ph="{...}" />
+            <marker date="1521924975441" expanded="true" signature="1265:2087" ph="{...}" />
+            <marker date="1521924975441" expanded="true" signature="1311:2032" ph="{...}" />
+            <marker date="1521924975441" expanded="true" signature="1616:1767" ph="/* show in UI ... */" />
+            <marker date="1521924975441" expanded="true" signature="2176:2317" ph="{...}" />
+            <marker date="1521924975441" expanded="true" signature="2377:2583" ph="{...}" />
+            <marker date="1521924975441" expanded="true" signature="2619:2802" ph="{...}" />
+            <marker date="1521924975441" expanded="true" signature="2836:3705" ph="{...}" />
+            <marker date="1521924975441" expanded="true" signature="2883:3699" ph="{...}" />
+            <marker date="1521924975441" expanded="true" signature="2931:3569" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

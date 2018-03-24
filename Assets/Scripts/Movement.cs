@@ -4,12 +4,14 @@ using UnityEngine.Networking;
 
 public class Movement : MonoBehaviour
 {
+#region Car Stats
+    //car stats
     public float maxTorque = 50f;
     public float maxSteerAngle = 20f;
     public Transform centerOfMass;
     public WheelCollider[] wheelcolliders = new WheelCollider[4];
     public Transform[] tireMeshes = new Transform[4];
-
+#endregion
 
 
 
@@ -18,12 +20,22 @@ public class Movement : MonoBehaviour
     private NetworkView netView;
 
 
+
+
+
+
+#region SyncVariables
+
+    
+
+
+    //sync variables
     private float lastSynchronizationTime = 0f;
     private float syncDelay = 0f;
     private float syncTime = 0f;
     private Vector3 syncStartPosition;
     private Vector3 syncEndPosition;
-
+#endregion
     
 
     public void Start()
@@ -42,16 +54,14 @@ public class Movement : MonoBehaviour
         {
             if (Application.platform == RuntimePlatform.Android)
             {
-                //Debug.Log("Android");
-                //foreach (WheelCollider wheel in wheelcolliders)
-                //{
-                //    wheel.motorTorque = maxTorque;
-                //}
+                foreach (WheelCollider wheel in wheelcolliders)
+                {
+                    wheel.motorTorque = maxTorque;
+                }
             }
 
             if (Application.platform == RuntimePlatform.WindowsPlayer)
             {
-                //Debug.Log("pc");
                 wheelcolliders[0].steerAngle = maxSteerAngle * Input.GetAxis("Horizontal");
                 wheelcolliders[1].steerAngle = maxSteerAngle * Input.GetAxis("Horizontal");
                 if (transform.position.y < -2 || Input.GetKey(KeyCode.R))
@@ -71,7 +81,7 @@ public class Movement : MonoBehaviour
                     }
                 }
 
-                if (Input.GetKey(KeyCode.Space))
+                if (Input.GetKeyDown(KeyCode.Space))
                 {
                     Jump(rigidbody, 15);
                 }
@@ -83,7 +93,6 @@ public class Movement : MonoBehaviour
 
             if (Application.platform == RuntimePlatform.WindowsEditor)
             {
-                //Debug.Log("editor");
                 wheelcolliders[0].steerAngle = maxSteerAngle * Input.GetAxis("Horizontal");
                 wheelcolliders[1].steerAngle = maxSteerAngle * Input.GetAxis("Horizontal");
                 if (transform.position.y < -2 || Input.GetKey(KeyCode.R))

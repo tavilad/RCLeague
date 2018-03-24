@@ -43,12 +43,14 @@ public class NetworkManager : MonoBehaviour
     public void StartServer(int connections)
     {
         //Network.useProxy = true;
-        Network.InitializeServer(5, 5555, true);
+        Network.InitializeServer(5, 6666, true);
         MasterServer.RegisterHost("gametype", "gamename");
 
+        LapManager.numberOfLaps = 3;
+        SpawnPlayer();
         controlCanvas.gameObject.SetActive(true);
         lobbyCanvas.gameObject.SetActive(false);
-        SpawnPlayer();
+        
     }
 
     private void OnServerInitialized()
@@ -65,13 +67,18 @@ public class NetworkManager : MonoBehaviour
 
     private void SpawnPlayer()
     {
-        GameObject car = (GameObject)Network.Instantiate(playerPrefab, spawnPoints[Network.connections.Length].position, Quaternion.identity, index++);
+        GameObject car = (GameObject)Network.Instantiate(playerPrefab, spawnPoints[Network.connections.Length].position, Quaternion.identity, Network.connections.Length);
+
         Debug.Log(Network.connections.Length);
+
+
         CameraMovement.target = car.transform;
         GameInfo.imagePick = img;
-        ButtonScript.car = car;
-        index++;
-        print(index);
+
+        Debug.Log("wheels lenght: " + car.GetComponentsInChildren<WheelCollider>().Length);
+        ButtonScript.wheels = car.GetComponentsInChildren<WheelCollider>();
+
+        ButtonScript.movement = car.GetComponent<Movement>();
     }
 
     private void OnDisconnectedFromServer()

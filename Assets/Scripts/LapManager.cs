@@ -9,6 +9,7 @@ public class LapManager : MonoBehaviour
     public static int currentCheckpoint;
     public static int currentLap;
     public static Transform[] waypts;
+    public static int numberOfLaps=3;
 
     private void Start()
     {
@@ -20,7 +21,7 @@ public class LapManager : MonoBehaviour
 
     private void Update()
     {
-        if (currentLap > 2)
+        if (currentLap > numberOfLaps)
         {
             SceneManager.LoadScene(0);
         }
