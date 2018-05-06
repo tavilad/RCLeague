@@ -20,7 +20,7 @@ public class GameInfo : MonoBehaviour
     public PickupInfo[] pickupsData;
     public static RawImage imagePick;
     private PickupInfo currentPick;
-    private NetworkView netView;
+    private PhotonView photonView;
     public GameObject trails;
 
 
@@ -37,11 +37,11 @@ public class GameInfo : MonoBehaviour
     private void Start()
     {
         movement = transform.GetComponent<Movement>();
-        netView = transform.GetComponent<NetworkView>();
+        photonView = transform.GetComponent<PhotonView>();
         rb = transform.GetComponent<Rigidbody>();
 
 
-        if (netView.isMine)
+        if (photonView.isMine)
         {
             hasPickup = false;
             //transform.position = spawnPoints[0].position;
@@ -52,9 +52,9 @@ public class GameInfo : MonoBehaviour
     #region PickUp Handling
     private void OnTriggerEnter(Collider col)
     {
-        if (netView.isMine)
+        if (photonView.isMine)
         {
-            if (col.gameObject.tag == "PickUp")
+            if (col.gameObject.CompareTag("PickUp"))
             {
                 if (!hasPickup)
                 {
@@ -106,7 +106,7 @@ public class GameInfo : MonoBehaviour
 
     public void ActivatePickUp()
     {
-        if (hasPickup && netView.isMine)
+        if (hasPickup && photonView.isMine)
         {
             switch (currentPick.name)
             {

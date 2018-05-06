@@ -4,30 +4,24 @@ using UnityEngine.Networking;
 
 public class Movement : MonoBehaviour
 {
-#region Car Stats
+    #region Car Stats
+
     //car stats
     public float maxTorque = 50f;
     public float maxSteerAngle = 20f;
     public Transform centerOfMass;
     public WheelCollider[] wheelcolliders = new WheelCollider[4];
     public Transform[] tireMeshes = new Transform[4];
-#endregion
 
+    #endregion
 
 
     private new Rigidbody rigidbody;
     private GameInfo info;
-    private NetworkView netView;
+    private PhotonView _photonView;
 
 
-
-
-
-
-#region SyncVariables
-
-    
-
+    #region SyncVariables
 
     //sync variables
     private float lastSynchronizationTime = 0f;
@@ -35,22 +29,22 @@ public class Movement : MonoBehaviour
     private float syncTime = 0f;
     private Vector3 syncStartPosition;
     private Vector3 syncEndPosition;
-#endregion
-    
+
+    #endregion
+
 
     public void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
         rigidbody.centerOfMass = centerOfMass.localPosition;
         info = transform.GetComponent<GameInfo>();
-        netView = transform.GetComponent<NetworkView>();
+        _photonView = transform.GetComponent<PhotonView>();
     }
 
-    
 
     private void FixedUpdate()
     {
-        if (netView.isMine)
+        if (_photonView.isMine)
         {
             if (Application.platform == RuntimePlatform.Android)
             {
@@ -85,6 +79,7 @@ public class Movement : MonoBehaviour
                 {
                     Jump(rigidbody, 15);
                 }
+
                 foreach (WheelCollider wheel in wheelcolliders)
                 {
                     wheel.motorTorque = maxTorque * Input.GetAxis("Vertical");
@@ -122,6 +117,7 @@ public class Movement : MonoBehaviour
                     wheel.motorTorque = maxTorque * Input.GetAxis("Vertical");
                 }
             }
+
             if (Input.GetKey(KeyCode.R))
             {
                 GameObjectUtil.respawn(transform);
@@ -130,10 +126,8 @@ public class Movement : MonoBehaviour
         else
         {
             Destroy(this);
-            SyncedMovement();
+//            SyncedMovement();
         }
-
-        
     }
 
     public void MoveLeft(WheelCollider[] wheels, float steer)
@@ -160,36 +154,31 @@ public class Movement : MonoBehaviour
     }
 
 
-
-
-    void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info)
-    {
-        Vector3 syncPosition = rigidbody.position;
-        if (stream.isWriting)
-        {
-            syncPosition = rigidbody.position;
-            stream.Serialize(ref syncPosition);
-        }
-        else
-        {
-            stream.Serialize(ref syncPosition);
-
-            syncTime = 0f;
-            syncDelay = Time.time - lastSynchronizationTime;
-            lastSynchronizationTime = Time.time;
-
-            syncStartPosition = rigidbody.position;
-            syncEndPosition = syncPosition;
-        }
-    }
-
-
-    private void SyncedMovement()
-    {
-        syncTime += Time.deltaTime;
-        rigidbody.position = Vector3.Lerp(syncStartPosition, syncEndPosition, syncTime / syncDelay);
-        transform.position = Vector3.Lerp(syncStartPosition, syncEndPosition, syncTime / syncDelay);
-    }
-
-
+//    void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info)
+//    {
+//        Vector3 syncPosition = rigidbody.position;
+//        if (stream.isWriting)
+//        {
+//            syncPosition = rigidbody.position;
+//            stream.Serialize(ref syncPosition);
+//        }
+//        else
+//        {
+//            stream.Serialize(ref syncPosition);
+//
+//            syncTime = 0f;
+//            syncDelay = Time.time - lastSynchronizationTime;
+//            lastSynchronizationTime = Time.time;
+//
+//            syncStartPosition = rigidbody.position;
+//            syncEndPosition = syncPosition;
+//        }
 }
+
+
+//    private void SyncedMovement()
+//    {
+//        syncTime += Time.deltaTime;
+//        rigidbody.position = Vector3.Lerp(syncStartPosition, syncEndPosition, syncTime / syncDelay);
+//        transform.position = Vector3.Lerp(syncStartPosition, syncEndPosition, syncTime / syncDelay);
+//    }

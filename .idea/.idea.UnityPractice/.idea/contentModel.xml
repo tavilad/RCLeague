@@ -150,16 +150,28 @@
           <e p="ButtonScript.cs" t="Include" />
           <e p="CameraMovement.cs" t="Include" />
           <e p="CheckpointManager.cs" t="Include" />
+          <e p="CreateRoom.cs" t="Include" />
+          <e p="CurrentRoomCanvas.cs" t="Include" />
+          <e p="DDOL.cs" t="Include" />
           <e p="GameInfo.cs" t="Include" />
           <e p="GameObjectUtil.cs" t="Include" />
           <e p="LapManager.cs" t="Include" />
+          <e p="LobbyCanvas.cs" t="Include" />
+          <e p="LobbyNetwork.cs" t="Include" />
+          <e p="MainCanvasManager.cs" t="Include" />
           <e p="Movement.cs" t="Include" />
-          <e p="NetworkManager.cs" t="Include" />
+          <e p="NetworkPlayer.cs" t="Include" />
           <e p="PickupClickHandler.cs" t="Include" />
           <e p="PickupInfo.cs" t="Include" />
           <e p="PickupTween.cs" t="Include" />
+          <e p="PlayerLayoutGroup.cs" t="Include" />
+          <e p="PlayerListing.cs" t="Include" />
+          <e p="PlayerNetwork.cs" t="Include" />
+          <e p="RoomLayoutGroup.cs" t="Include" />
+          <e p="RoomListing.cs" t="Include" />
           <e p="Settings.cs" t="Include" />
           <e p="SpawnManager.cs" t="Include" />
+          <e p="TouchManager.cs" t="Include" />
           <e p="UpdateTireMeshPosition.cs" t="Include" />
         </e>
       </e>
