@@ -15,6 +15,8 @@ public class PlayerNetwork : MonoBehaviour
 
     [SerializeField] private GameObject playerPrefab;
 
+    private List<GameObject> spawnPoints;
+
 
     private void Awake()
     {
@@ -49,6 +51,32 @@ public class PlayerNetwork : MonoBehaviour
     [PunRPC]
     private void RPC_CreatePlayer()
     {
-        GameObject obj = PhotonNetwork.Instantiate(playerPrefab.name, Vector3.zero, Quaternion.identity, 0);
+
+        spawnPoints = GetSpawnPoints();
+        
+        GameObject car = PhotonNetwork.Instantiate(playerPrefab.name,
+            spawnPoints[PhotonNetwork.player.ID - 1].transform.position,
+            spawnPoints[PhotonNetwork.player.ID - 1].transform.rotation, 0);
+
+        CameraMovement.target = car.transform;
+
+        ButtonScript.wheels = car.GetComponentsInChildren<WheelCollider>();
+
+        ButtonScript.movement = car.GetComponent<Movement>();
+    }
+
+
+    private List<GameObject> GetSpawnPoints()
+    {
+        GameObject root = GameObject.FindWithTag("SpawnPoints");
+
+        List<GameObject> points = new List<GameObject>();
+
+        foreach (Transform child in root.transform)
+        {
+            points.Add(child.gameObject);
+        }
+
+        return points;
     }
 }
