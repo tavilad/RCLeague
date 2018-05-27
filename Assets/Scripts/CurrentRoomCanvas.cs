@@ -9,7 +9,7 @@ public class CurrentRoomCanvas : MonoBehaviour {
     {
         if (PhotonNetwork.player.IsMasterClient)
         {
-            PhotonNetwork.LoadLevel(1);
+            PhotonNetwork.LoadLevel(GameManager.Instance.LevelNumber);
         }
         else
         {

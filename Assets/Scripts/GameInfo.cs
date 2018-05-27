@@ -47,6 +47,10 @@ public class GameInfo : MonoBehaviour
             //transform.position = spawnPoints[0].position;
             imagePick.gameObject.SetActive(false);
         }
+        else
+        {
+            Destroy(this);
+        }
     }
 
     #region PickUp Handling

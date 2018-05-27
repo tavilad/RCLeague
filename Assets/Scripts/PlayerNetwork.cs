@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerNetwork : MonoBehaviour
 {
     public static PlayerNetwork Instance;
 
-    public string PlayerName { get; private set; }
 
     private int PlayersInGame = 0;
 
@@ -21,8 +22,6 @@ public class PlayerNetwork : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-
-        PlayerName = "RandomName#" + Random.Range(10, 1000);
 
         PhotonView = GetComponent<PhotonView>();
 
@@ -51,9 +50,8 @@ public class PlayerNetwork : MonoBehaviour
     [PunRPC]
     private void RPC_CreatePlayer()
     {
-
         spawnPoints = GetSpawnPoints();
-        
+
         GameObject car = PhotonNetwork.Instantiate(playerPrefab.name,
             spawnPoints[PhotonNetwork.player.ID - 1].transform.position,
             spawnPoints[PhotonNetwork.player.ID - 1].transform.rotation, 0);
@@ -63,6 +61,12 @@ public class PlayerNetwork : MonoBehaviour
         ButtonScript.wheels = car.GetComponentsInChildren<WheelCollider>();
 
         ButtonScript.movement = car.GetComponent<Movement>();
+
+        GameInfo.imagePick = GameObject.FindWithTag("PickupRawImage").GetComponent<RawImage>();
+
+        car.GetComponent<TextMeshPro>().text = GameManager.Instance.PlayerName;
+
+        StartCoroutine("StartRace");
     }
 
 
@@ -78,5 +82,13 @@ public class PlayerNetwork : MonoBehaviour
         }
 
         return points;
+    }
+
+
+    IEnumerator StartRace()
+    {
+        yield return new WaitForSeconds(5);
+
+        Movement.raceStarted = true;
     }
 }

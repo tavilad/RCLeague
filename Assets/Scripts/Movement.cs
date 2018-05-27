@@ -33,6 +33,9 @@ public class Movement : MonoBehaviour
     #endregion
 
 
+    public static bool raceStarted = false;
+
+
     public void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
@@ -44,89 +47,95 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_photonView.isMine)
+        if (raceStarted)
         {
-            if (Application.platform == RuntimePlatform.Android)
+            if (_photonView.isMine)
             {
-                foreach (WheelCollider wheel in wheelcolliders)
+                if (Application.platform == RuntimePlatform.Android)
                 {
-                    wheel.motorTorque = maxTorque;
+                    foreach (WheelCollider wheel in wheelcolliders)
+                    {
+                        wheel.motorTorque = maxTorque;
+                    }
                 }
-            }
 
-            if (Application.platform == RuntimePlatform.WindowsPlayer)
-            {
-                wheelcolliders[0].steerAngle = maxSteerAngle * Input.GetAxis("Horizontal");
-                wheelcolliders[1].steerAngle = maxSteerAngle * Input.GetAxis("Horizontal");
-                if (transform.position.y < -2 || Input.GetKey(KeyCode.R))
+                if (Application.platform == RuntimePlatform.WindowsPlayer)
+                {
+                    wheelcolliders[0].steerAngle = maxSteerAngle * Input.GetAxis("Horizontal");
+                    wheelcolliders[1].steerAngle = maxSteerAngle * Input.GetAxis("Horizontal");
+                    if (transform.position.y < -2 || Input.GetKey(KeyCode.R))
+                    {
+                        GameObjectUtil.respawn(transform);
+                    }
+
+                    if (Input.GetKey(KeyCode.F))
+                    {
+                        if (info != null)
+                        {
+                            info.ActivatePickUp();
+                        }
+                        else
+                        {
+                            print("cant find component");
+                        }
+                    }
+
+                    if (Input.GetKeyDown(KeyCode.Space))
+                    {
+                        Jump(rigidbody, 15);
+                    }
+
+                    foreach (WheelCollider wheel in wheelcolliders)
+                    {
+                        wheel.motorTorque = maxTorque * Input.GetAxis("Vertical");
+                    }
+                }
+
+                if (Application.platform == RuntimePlatform.WindowsEditor)
+                {
+                    wheelcolliders[0].steerAngle = maxSteerAngle * Input.GetAxis("Horizontal");
+                    wheelcolliders[1].steerAngle = maxSteerAngle * Input.GetAxis("Horizontal");
+                    if (transform.position.y < -2 || Input.GetKey(KeyCode.R))
+                    {
+                        GameObjectUtil.respawn(transform);
+                    }
+
+                    if (Input.GetKey(KeyCode.F))
+                    {
+                        if (info != null)
+                        {
+                            info.ActivatePickUp();
+                        }
+                        else
+                        {
+                            print("cant find component");
+                        }
+                    }
+
+                    if (Input.GetKey(KeyCode.Space))
+                    {
+                        Jump(rigidbody, 15);
+                    }
+
+                    foreach (WheelCollider wheel in wheelcolliders)
+                    {
+                        wheel.motorTorque = maxTorque * Input.GetAxis("Vertical");
+                    }
+                }
+
+                if (Input.GetKey(KeyCode.R))
                 {
                     GameObjectUtil.respawn(transform);
                 }
-
-                if (Input.GetKey(KeyCode.F))
-                {
-                    if (info != null)
-                    {
-                        info.ActivatePickUp();
-                    }
-                    else
-                    {
-                        print("cant find component");
-                    }
-                }
-
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    Jump(rigidbody, 15);
-                }
-
-                foreach (WheelCollider wheel in wheelcolliders)
-                {
-                    wheel.motorTorque = maxTorque * Input.GetAxis("Vertical");
-                }
             }
-
-            if (Application.platform == RuntimePlatform.WindowsEditor)
+            else
             {
-                wheelcolliders[0].steerAngle = maxSteerAngle * Input.GetAxis("Horizontal");
-                wheelcolliders[1].steerAngle = maxSteerAngle * Input.GetAxis("Horizontal");
-                if (transform.position.y < -2 || Input.GetKey(KeyCode.R))
-                {
-                    GameObjectUtil.respawn(transform);
-                }
-
-                if (Input.GetKey(KeyCode.F))
-                {
-                    if (info != null)
-                    {
-                        info.ActivatePickUp();
-                    }
-                    else
-                    {
-                        print("cant find component");
-                    }
-                }
-
-                if (Input.GetKey(KeyCode.Space))
-                {
-                    Jump(rigidbody, 15);
-                }
-
-                foreach (WheelCollider wheel in wheelcolliders)
-                {
-                    wheel.motorTorque = maxTorque * Input.GetAxis("Vertical");
-                }
-            }
-
-            if (Input.GetKey(KeyCode.R))
-            {
-                GameObjectUtil.respawn(transform);
+                Destroy(this);
             }
         }
         else
         {
-            Destroy(this);
-//            SyncedMovement();
+            Debug.Log("countdown for race start");
         }
     }
 
@@ -152,33 +161,4 @@ public class Movement : MonoBehaviour
             Debug.Log("Jumped");
         }
     }
-
-
-//    void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info)
-//    {
-//        Vector3 syncPosition = rigidbody.position;
-//        if (stream.isWriting)
-//        {
-//            syncPosition = rigidbody.position;
-//            stream.Serialize(ref syncPosition);
-//        }
-//        else
-//        {
-//            stream.Serialize(ref syncPosition);
-//
-//            syncTime = 0f;
-//            syncDelay = Time.time - lastSynchronizationTime;
-//            lastSynchronizationTime = Time.time;
-//
-//            syncStartPosition = rigidbody.position;
-//            syncEndPosition = syncPosition;
-//        }
 }
-
-
-//    private void SyncedMovement()
-//    {
-//        syncTime += Time.deltaTime;
-//        rigidbody.position = Vector3.Lerp(syncStartPosition, syncEndPosition, syncTime / syncDelay);
-//        transform.position = Vector3.Lerp(syncStartPosition, syncEndPosition, syncTime / syncDelay);
-//    }
