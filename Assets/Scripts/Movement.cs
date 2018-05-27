@@ -33,7 +33,7 @@ public class Movement : MonoBehaviour
     #endregion
 
 
-    public static bool raceStarted = false;
+    
 
 
     public void Start()
@@ -47,7 +47,7 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (raceStarted)
+        if (GameManager.Instance.RaceStarted)
         {
             if (_photonView.isMine)
             {

@@ -64,7 +64,7 @@ public class PlayerNetwork : MonoBehaviour
 
         GameInfo.imagePick = GameObject.FindWithTag("PickupRawImage").GetComponent<RawImage>();
 
-        car.GetComponent<TextMeshPro>().text = GameManager.Instance.PlayerName;
+        car.GetComponent<TextMeshPro>().text = PhotonNetwork.playerName;
 
         StartCoroutine("StartRace");
     }
@@ -89,6 +89,6 @@ public class PlayerNetwork : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
 
-        Movement.raceStarted = true;
+        GameManager.Instance.RaceStarted = true;
     }
 }

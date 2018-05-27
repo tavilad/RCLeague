@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public GameMode GameMode { get; set; }
     
     public string PlayerName { get; set; }
+    
+    public bool RaceStarted { get; set; }
 
     private void Awake()
     {
@@ -21,5 +23,7 @@ public class GameManager : MonoBehaviour
         LevelNumber = 1;
 
         GameMode = GameMode.SinglePlayer;
+
+        RaceStarted = false;
     }
 }
