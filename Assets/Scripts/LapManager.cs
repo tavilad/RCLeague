@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LapManager : MonoBehaviour
 {
@@ -9,7 +11,10 @@ public class LapManager : MonoBehaviour
     public static int currentCheckpoint;
     public static int currentLap;
     public static Transform[] waypts;
-    public static int numberOfLaps=3;
+    public static int numberOfLaps = 3;
+    public static float timer;
+
+    [SerializeField] private Text _timerText;
 
     private void Start()
     {
@@ -17,13 +22,26 @@ public class LapManager : MonoBehaviour
         currentLap = 1;
         waypts = wayPoints;
         waypts[0].gameObject.SetActive(false);
+        timer = 0f;
+        CheckpointManager.OnLapChanged += HandleOnLapChanged;
     }
 
     private void Update()
     {
-        if (currentLap > numberOfLaps)
+        if (GameManager.Instance.RaceStarted)
         {
-            SceneManager.LoadScene(0);
+            timer += Time.deltaTime;
+            _timerText.text = timer.ToString();
+            if (currentLap > numberOfLaps)
+            {
+                GameManager.Instance.RaceStarted = false;
+            }
         }
+    }
+
+
+    private void HandleOnLapChanged()
+    {
+        timer = 0;
     }
 }

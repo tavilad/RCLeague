@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class CheckpointManager : MonoBehaviour
 {
-    // Use this for initialization
-    private void Start()
-    {
-    }
+    public delegate void LapDelegate();
 
-    // Update is called once per frame
-    private void Update()
-    {
-    }
+    public static event LapDelegate OnLapChanged;
 
     private void OnTriggerEnter(Collider collider)
     {
@@ -31,6 +25,8 @@ public class CheckpointManager : MonoBehaviour
                 if (LapManager.currentCheckpoint == 0)
                     LapManager.currentLap++;
                 LapManager.currentCheckpoint++;
+                if (OnLapChanged != null)
+                    OnLapChanged();
             }
             else
             {
@@ -38,6 +34,7 @@ public class CheckpointManager : MonoBehaviour
                 LapManager.currentCheckpoint = 0;
             }
         }
+
         Debug.Log("CheckPoint: " + LapManager.currentCheckpoint + " Lap: " + LapManager.currentLap);
     }
 }
