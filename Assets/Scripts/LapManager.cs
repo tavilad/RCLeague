@@ -14,6 +14,10 @@ public class LapManager : MonoBehaviour
     public static int numberOfLaps = 3;
     public static float timer;
 
+    public delegate void LapDelegate();
+
+    public static event LapDelegate OnRaceFinished;
+
     [SerializeField] private Text _timerText;
 
     private void Start()
@@ -23,7 +27,7 @@ public class LapManager : MonoBehaviour
         waypts = wayPoints;
         waypts[0].gameObject.SetActive(false);
         timer = 0f;
-        CheckpointManager.OnLapChanged += HandleOnLapChanged;
+        CheckpointManager.OnLapFinished += HandleOnLapChanged;
     }
 
     private void Update()
@@ -35,6 +39,10 @@ public class LapManager : MonoBehaviour
             if (currentLap > numberOfLaps)
             {
                 GameManager.Instance.RaceStarted = false;
+                if (OnRaceFinished != null)
+                {
+                    OnRaceFinished();
+                }
             }
         }
     }

@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class CheckpointManager : MonoBehaviour
 {
-    public delegate void LapDelegate();
+    public delegate void CheckPointDelegate();
 
-    public static event LapDelegate OnLapChanged;
+    public static event CheckPointDelegate OnLapFinished;
+    
+    
 
     private void OnTriggerEnter(Collider collider)
     {
@@ -25,8 +27,8 @@ public class CheckpointManager : MonoBehaviour
                 if (LapManager.currentCheckpoint == 0)
                     LapManager.currentLap++;
                 LapManager.currentCheckpoint++;
-                if (OnLapChanged != null)
-                    OnLapChanged();
+                if (OnLapFinished != null)
+                    OnLapFinished();
             }
             else
             {

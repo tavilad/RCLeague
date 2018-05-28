@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     public string PlayerName { get; set; }
     
     public bool RaceStarted { get; set; }
+    
+    public bool DidFinishRace { get; set; }
 
     private void Awake()
     {
@@ -25,5 +27,7 @@ public class GameManager : MonoBehaviour
         GameMode = GameMode.SinglePlayer;
 
         RaceStarted = false;
+
+        DidFinishRace = false;
     }
 }

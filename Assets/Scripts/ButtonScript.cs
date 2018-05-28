@@ -12,11 +12,9 @@ public class ButtonScript : MonoBehaviour
     public static Movement movement;
     public static WheelCollider[] wheels = new WheelCollider[4];
     public float steerAngle;
-    public Canvas canvas;
 
     private void Start()
     {
-        //wheels = car.GetComponents<WheelCollider>();
 
         if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
         {
@@ -51,17 +49,17 @@ public class ButtonScript : MonoBehaviour
         }
     }
 
-    public void flip(GameObject obj)
+    public void Flip(GameObject obj)
     {
-        GameObjectUtil.flip(obj.transform);
+        GameObjectUtil.Flip(obj.transform);
     }
 
-    public void jump(Rigidbody rb)
+    public void Jump(Rigidbody rb)
     {
         Movement.Jump(rb, 40);
     }
 
-    public void onPointerDown(GameObject obj)
+    public void OnPointerDown(GameObject obj)
     {
         if (obj.transform.tag == "Left")
         {
@@ -74,7 +72,7 @@ public class ButtonScript : MonoBehaviour
         }
     }
 
-    public void onPointerUp(GameObject obj)
+    public void OnPointerUp(GameObject obj)
     {
         if (obj.transform.tag == "Left")
         {
@@ -92,57 +90,4 @@ public class ButtonScript : MonoBehaviour
         SceneManager.LoadScene(index);
     }
 
-    public void Quality(GameObject obj)
-    {
-        if (obj.transform.tag == "Fastest")
-        {
-            QualitySettings.SetQualityLevel(0, true);
-            Debug.Log("fastest");
-        }
-        if (obj.transform.tag == "Fast")
-        {
-            QualitySettings.SetQualityLevel(1, true);
-            Debug.Log("fast");
-        }
-        if (obj.transform.tag == "Simple")
-        {
-            QualitySettings.SetQualityLevel(2, true);
-            Debug.Log("simple");
-        }
-        if (obj.transform.tag == "Good")
-        {
-            QualitySettings.SetQualityLevel(3, true);
-            Debug.Log("good");
-        }
-        if (obj.transform.tag == "Beautiful")
-        {
-            QualitySettings.SetQualityLevel(4, true);
-            Debug.Log("beautiful");
-        }
-        if (obj.transform.tag == "Fantastic")
-        {
-            QualitySettings.SetQualityLevel(5, true);
-            Debug.Log("Fantastic");
-        }
-        if (obj.transform.tag == "Resolution1")
-        {
-            Screen.SetResolution(896, 504, true);
-            Debug.Log("resolution1");
-        }
-        if (obj.transform.tag == "Resolution2")
-        {
-            Screen.SetResolution(960, 540, true);
-            Debug.Log("resolution2");
-        }
-        if (obj.transform.tag == "Resolution3")
-        {
-            Screen.SetResolution(1024, 576, true);
-            Debug.Log("resolution3");
-        }
-        if (obj.transform.tag == "Resolution4")
-        {
-            Screen.SetResolution(1152, 648, true);
-            Debug.Log("resolution4");
-        }
-    }
 }

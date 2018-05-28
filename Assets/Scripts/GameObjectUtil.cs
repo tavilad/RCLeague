@@ -13,7 +13,7 @@ namespace Assets
             return Physics.Raycast(transform.position, Vector3.down, distanceToGround + 0.1f);
         }
 
-        public static void respawn(Transform transform)
+        public static void Respawn(Transform transform)
         {
             Vector3 spawn = new Vector3(0f, 2f, 0f);
 
@@ -21,7 +21,7 @@ namespace Assets
             transform.rotation = Quaternion.Euler(defaultRotation);
         }
 
-        public static void flip(Transform transform)
+        public static void Flip(Transform transform)
         {
             if (Vector3.Dot(transform.up, Vector3.down) > 0)
             {

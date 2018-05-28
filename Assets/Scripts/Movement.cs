@@ -11,7 +11,6 @@ public class Movement : MonoBehaviour
     public float maxSteerAngle = 20f;
     public Transform centerOfMass;
     public WheelCollider[] wheelcolliders = new WheelCollider[4];
-    public Transform[] tireMeshes = new Transform[4];
 
     #endregion
 
@@ -42,6 +41,7 @@ public class Movement : MonoBehaviour
         rigidbody.centerOfMass = centerOfMass.localPosition;
         info = transform.GetComponent<GameInfo>();
         _photonView = transform.GetComponent<PhotonView>();
+        LapManager.OnRaceFinished += HandleOnRaceFinished;
     }
 
 
@@ -65,7 +65,7 @@ public class Movement : MonoBehaviour
                     wheelcolliders[1].steerAngle = maxSteerAngle * Input.GetAxis("Horizontal");
                     if (transform.position.y < -2 || Input.GetKey(KeyCode.R))
                     {
-                        GameObjectUtil.respawn(transform);
+                        GameObjectUtil.Respawn(transform);
                     }
 
                     if (Input.GetKey(KeyCode.F))
@@ -97,7 +97,7 @@ public class Movement : MonoBehaviour
                     wheelcolliders[1].steerAngle = maxSteerAngle * Input.GetAxis("Horizontal");
                     if (transform.position.y < -2 || Input.GetKey(KeyCode.R))
                     {
-                        GameObjectUtil.respawn(transform);
+                        GameObjectUtil.Respawn(transform);
                     }
 
                     if (Input.GetKey(KeyCode.F))
@@ -125,7 +125,7 @@ public class Movement : MonoBehaviour
 
                 if (Input.GetKey(KeyCode.R))
                 {
-                    GameObjectUtil.respawn(transform);
+                    GameObjectUtil.Respawn(transform);
                 }
             }
             else
@@ -159,6 +159,15 @@ public class Movement : MonoBehaviour
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             Debug.Log("Jumped");
+        }
+    }
+
+
+    private void HandleOnRaceFinished()
+    {
+        foreach (WheelCollider wheel in wheelcolliders)
+        {
+            wheel.motorTorque = 0f;
         }
     }
 }
