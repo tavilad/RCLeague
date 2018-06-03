@@ -165,6 +165,11 @@ public class Movement : MonoBehaviour
 
     private void HandleOnRaceFinished()
     {
+        
+        Debug.Log("race finished");
+
+        GameManager.Instance.RaceStarted = false;
+        
         foreach (WheelCollider wheel in wheelcolliders)
         {
             wheel.motorTorque = 0f;

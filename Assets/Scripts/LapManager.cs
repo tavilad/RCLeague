@@ -11,7 +11,7 @@ public class LapManager : MonoBehaviour
     public static int currentCheckpoint;
     public static int currentLap;
     public static Transform[] waypts;
-    public static int numberOfLaps = 3;
+    public static int numberOfLaps = 1;
     public static float timer;
 
     public delegate void LapDelegate();
@@ -38,7 +38,7 @@ public class LapManager : MonoBehaviour
             _timerText.text = timer.ToString();
             if (currentLap > numberOfLaps)
             {
-                GameManager.Instance.RaceStarted = false;
+                GameManager.Instance.DidFinishRace = true;
                 if (OnRaceFinished != null)
                 {
                     OnRaceFinished();
@@ -50,6 +50,6 @@ public class LapManager : MonoBehaviour
 
     private void HandleOnLapChanged()
     {
-        timer = 0;
+        timer = 0f;
     }
 }

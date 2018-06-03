@@ -10,12 +10,14 @@ public class GameManager : MonoBehaviour
     public int LevelNumber { get; private set; }
 
     public GameMode GameMode { get; set; }
-    
+
     public string PlayerName { get; set; }
-    
+
     public bool RaceStarted { get; set; }
-    
+
     public bool DidFinishRace { get; set; }
+
+    public List<LapTracker> CarList;
 
     private void Awake()
     {
@@ -29,5 +31,18 @@ public class GameManager : MonoBehaviour
         RaceStarted = false;
 
         DidFinishRace = false;
+
+        CarList = new List<LapTracker>();
+    }
+
+
+    private void Update()
+    {
+        if (CarList.Count > 0)
+        {
+            CarList.Sort((x, y) => x.DistanceToCheckpoint.CompareTo(y.DistanceToCheckpoint));
+            
+            Debug.Log(CarList[0].GetComponent<PhotonView>().viewID);
+        }
     }
 }

@@ -24,4 +24,9 @@ public class MainMenuCanvas : MonoBehaviour
 		GameManager.Instance.PlayerName = _playerName.text;
 		PhotonNetwork.playerName = _playerName.text;
 	}
+
+	public void OnClickTimeTrial()
+	{
+		GameManager.Instance.GameMode = GameMode.TimeTrial;
+	}
 }

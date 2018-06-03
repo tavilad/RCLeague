@@ -12,6 +12,10 @@ public class CheckpointManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
+        if (!collider.gameObject.GetComponentInParent<PhotonView>().isMine)
+        {
+            return;
+        }
         LapManager.waypts[0].gameObject.SetActive(true);
         if (!collider.CompareTag("Car"))
         {

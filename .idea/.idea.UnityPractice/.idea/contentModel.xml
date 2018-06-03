@@ -282,6 +282,7 @@
           <e p="GameMode.cs" t="Include" />
           <e p="GameObjectUtil.cs" t="Include" />
           <e p="LapManager.cs" t="Include" />
+          <e p="LapTracker.cs" t="Include" />
           <e p="LobbyCanvas.cs" t="Include" />
           <e p="LobbyNetwork.cs" t="Include" />
           <e p="MainCanvasManager.cs" t="Include" />
