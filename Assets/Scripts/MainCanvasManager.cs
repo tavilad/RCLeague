@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class MainCanvasManager : MonoBehaviour
 {
-
     public static MainCanvasManager Instance;
-    
+
     [SerializeField] private LobbyCanvas _lobbyCanvas;
 
     public LobbyCanvas LobbyCanvas
@@ -30,6 +29,9 @@ public class MainCanvasManager : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+        }
     }
 }

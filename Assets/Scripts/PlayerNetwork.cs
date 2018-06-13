@@ -65,7 +65,7 @@ public class PlayerNetwork : MonoBehaviour
         GameInfo.imagePick = GameObject.FindWithTag("PickupRawImage").GetComponent<RawImage>();
 
         car.GetComponent<TextMeshPro>().text = PhotonNetwork.playerName;
-        
+
         GameManager.Instance.CarList.Add(car.GetComponent<LapTracker>());
 
         StartCoroutine("StartRace");
