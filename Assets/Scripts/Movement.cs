@@ -31,9 +31,12 @@ public class Movement : MonoBehaviour
 
     #endregion
 
+    private JoystickController _joystickController;
+
 
     public void Start()
     {
+        _joystickController = FindObjectOfType<JoystickController>();
         rigidbody = GetComponent<Rigidbody>();
         rigidbody.centerOfMass = centerOfMass.localPosition;
         info = transform.GetComponent<GameInfo>();
@@ -53,11 +56,15 @@ public class Movement : MonoBehaviour
                 {
                     foreach (WheelCollider wheel in wheelcolliders)
                     {
-                        wheel.motorTorque = maxTorque;
+                        wheel.motorTorque = maxTorque * _joystickController.InputVector.z;
                     }
+
+                    wheelcolliders[0].steerAngle = maxSteerAngle * _joystickController.InputVector.x;
+                    wheelcolliders[1].steerAngle = maxSteerAngle * _joystickController.InputVector.x;
                 }
 
-                if (Application.platform == RuntimePlatform.WindowsPlayer)
+                if (Application.platform == RuntimePlatform.WindowsPlayer ||
+                    Application.platform == RuntimePlatform.WindowsEditor)
                 {
                     wheelcolliders[0].steerAngle = maxSteerAngle * Input.GetAxis("Horizontal");
                     wheelcolliders[1].steerAngle = maxSteerAngle * Input.GetAxis("Horizontal");
@@ -79,38 +86,6 @@ public class Movement : MonoBehaviour
                     }
 
                     if (Input.GetKeyDown(KeyCode.Space))
-                    {
-                        Jump(rigidbody, 15);
-                    }
-
-                    foreach (WheelCollider wheel in wheelcolliders)
-                    {
-                        wheel.motorTorque = maxTorque * Input.GetAxis("Vertical");
-                    }
-                }
-
-                if (Application.platform == RuntimePlatform.WindowsEditor)
-                {
-                    wheelcolliders[0].steerAngle = maxSteerAngle * Input.GetAxis("Horizontal");
-                    wheelcolliders[1].steerAngle = maxSteerAngle * Input.GetAxis("Horizontal");
-                    if (transform.position.y < -2 || Input.GetKey(KeyCode.R))
-                    {
-                        GameObjectUtil.Respawn(transform);
-                    }
-
-                    if (Input.GetKey(KeyCode.F))
-                    {
-                        if (info != null)
-                        {
-                            info.ActivatePickUp();
-                        }
-                        else
-                        {
-                            print("cant find component");
-                        }
-                    }
-
-                    if (Input.GetKey(KeyCode.Space))
                     {
                         Jump(rigidbody, 15);
                     }

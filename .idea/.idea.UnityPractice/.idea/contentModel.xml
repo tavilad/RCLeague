@@ -17,6 +17,14 @@
           <e p="readme.txt" t="Include" />
         </e>
       </e>
+      <e p="Assets\N3K" t="Include">
+        <e p="VirtualJoystick" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="PlayerMovement.cs" t="Include" />
+            <e p="VirtualJoystick.cs" t="Include" />
+          </e>
+        </e>
+      </e>
       <e p="Assets\Photon" t="Include">
         <e p="Photon Unity Networking" t="Include">
           <e p="changelog.txt" t="Include" />
@@ -280,6 +288,7 @@
         <e p="GameManager.cs" t="Include" />
         <e p="GameMode.cs" t="Include" />
         <e p="GameObjectUtil.cs" t="Include" />
+        <e p="JoystickController.cs" t="Include" />
         <e p="LapManager.cs" t="Include" />
         <e p="LapTracker.cs" t="Include" />
         <e p="LobbyCanvas.cs" t="Include" />
