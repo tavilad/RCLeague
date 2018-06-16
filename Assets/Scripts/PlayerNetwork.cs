@@ -31,8 +31,11 @@ public class PlayerNetwork : MonoBehaviour
 
     private void OnSceneFinishedLoading(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log("scene finished loading");
-        PhotonView.RPC("RPC_LoadedGameScene", PhotonTargets.MasterClient, PhotonNetwork.player);
+        if (GameManager.Instance.GameMode == GameMode.Multiplayer)
+        {
+            Debug.Log("scene finished loading");
+            PhotonView.RPC("RPC_LoadedGameScene", PhotonTargets.MasterClient, PhotonNetwork.player);
+        }
     }
 
 
@@ -72,7 +75,7 @@ public class PlayerNetwork : MonoBehaviour
     }
 
 
-    private List<GameObject> GetSpawnPoints()
+    public static List<GameObject> GetSpawnPoints()
     {
         GameObject root = GameObject.FindWithTag("SpawnPoints");
 

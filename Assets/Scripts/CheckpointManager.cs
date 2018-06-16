@@ -1,21 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class CheckpointManager : MonoBehaviour
 {
     public delegate void CheckPointDelegate();
 
     public static event CheckPointDelegate OnLapFinished;
-    
-    
+
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (!collider.gameObject.GetComponentInParent<PhotonView>().isMine)
+        if (!collider.gameObject.GetComponentInParent<PhotonView>().isMine &&
+            GameManager.Instance.GameMode == GameMode.Multiplayer)
         {
             return;
         }
+
         LapManager.waypts[0].gameObject.SetActive(true);
         if (!collider.CompareTag("Car"))
         {

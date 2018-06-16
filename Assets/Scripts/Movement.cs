@@ -32,9 +32,6 @@ public class Movement : MonoBehaviour
     #endregion
 
 
-    
-
-
     public void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
@@ -49,7 +46,8 @@ public class Movement : MonoBehaviour
     {
         if (GameManager.Instance.RaceStarted)
         {
-            if (_photonView.isMine)
+            if (_photonView.isMine || GameManager.Instance.GameMode == GameMode.SinglePlayer ||
+                GameManager.Instance.GameMode == GameMode.TimeTrial)
             {
                 if (Application.platform == RuntimePlatform.Android)
                 {
@@ -165,11 +163,10 @@ public class Movement : MonoBehaviour
 
     private void HandleOnRaceFinished()
     {
-        
         Debug.Log("race finished");
 
         GameManager.Instance.RaceStarted = false;
-        
+
         foreach (WheelCollider wheel in wheelcolliders)
         {
             wheel.motorTorque = 0f;

@@ -21,5 +21,7 @@ public class LapTracker : MonoBehaviour
     {
         this._distanceToCheckpoint =
             Vector3.Distance(this.transform.position, LapManager.waypts[LapManager.currentCheckpoint].transform.position);
+
+//        Debug.Log(this._distanceToCheckpoint);
     }
 }

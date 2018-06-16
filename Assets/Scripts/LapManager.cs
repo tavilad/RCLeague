@@ -19,6 +19,7 @@ public class LapManager : MonoBehaviour
     public static event LapDelegate OnRaceFinished;
 
     [SerializeField] private Text _timerText;
+    [SerializeField] private Text _bestTimeText;
 
     private void Start()
     {
@@ -28,6 +29,7 @@ public class LapManager : MonoBehaviour
         waypts[0].gameObject.SetActive(false);
         timer = 0f;
         CheckpointManager.OnLapFinished += HandleOnLapChanged;
+        
     }
 
     private void Update()
@@ -36,12 +38,16 @@ public class LapManager : MonoBehaviour
         {
             timer += Time.deltaTime;
             _timerText.text = timer.ToString();
-            if (currentLap > numberOfLaps)
+            if (GameManager.Instance.GameMode == GameMode.Multiplayer ||
+                GameManager.Instance.GameMode == GameMode.SinglePlayer)
             {
-                GameManager.Instance.DidFinishRace = true;
-                if (OnRaceFinished != null)
+                if (currentLap > numberOfLaps)
                 {
-                    OnRaceFinished();
+                    GameManager.Instance.DidFinishRace = true;
+                    if (OnRaceFinished != null)
+                    {
+                        OnRaceFinished();
+                    }
                 }
             }
         }
@@ -50,6 +56,8 @@ public class LapManager : MonoBehaviour
 
     private void HandleOnLapChanged()
     {
+        PlayerPrefs.SetFloat("BestTime",timer);
         timer = 0f;
+        Debug.Log(PlayerPrefs.GetFloat("BestTime"));
     }
 }

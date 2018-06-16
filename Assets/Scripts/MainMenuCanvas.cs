@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Net.Mime;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainMenuCanvas : MonoBehaviour
@@ -26,5 +27,6 @@ public class MainMenuCanvas : MonoBehaviour
     public void OnClickTimeTrial()
     {
         GameManager.Instance.GameMode = GameMode.TimeTrial;
+        SceneManager.LoadScene("test");
     }
 }

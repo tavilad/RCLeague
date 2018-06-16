@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,6 +22,8 @@ public class GameManager : MonoBehaviour
 
     public List<LapTracker> CarList;
 
+    public GameObject playerPrefab;
+
     private void Awake()
     {
         if (Instance == null)
@@ -33,6 +38,8 @@ public class GameManager : MonoBehaviour
         DidFinishRace = false;
 
         CarList = new List<LapTracker>();
+
+        SceneManager.sceneLoaded += OnSceneFinishedLoading;
     }
 
 
@@ -41,8 +48,43 @@ public class GameManager : MonoBehaviour
         if (CarList.Count > 0)
         {
             CarList.Sort((x, y) => x.DistanceToCheckpoint.CompareTo(y.DistanceToCheckpoint));
-            
+
             Debug.Log(CarList[0].GetComponent<PhotonView>().viewID);
         }
+    }
+
+    private void OnSceneFinishedLoading(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name.Equals("test") && GameMode == GameMode.TimeTrial)
+        {
+//            GameManager.Instance.RaceStarted = true;
+
+            GameObject.Find("PickUps").SetActive(false);
+
+            GameObject car = Instantiate(playerPrefab,
+                PlayerNetwork.GetSpawnPoints()[0].transform.position,
+                PlayerNetwork.GetSpawnPoints()[0].transform.rotation);
+
+            CameraMovement.target = car.transform;
+
+            ButtonScript.wheels = car.GetComponentsInChildren<WheelCollider>();
+
+            ButtonScript.movement = car.GetComponent<Movement>();
+
+            GameInfo.imagePick = GameObject.FindWithTag("PickupRawImage").GetComponent<RawImage>();
+
+            car.GetComponent<TextMeshPro>().text = PhotonNetwork.playerName;
+            
+            Debug.Log(PlayerPrefs.GetFloat("BestTime"));
+
+            StartCoroutine("StartRace");
+        }
+    }
+    
+    IEnumerator StartRace()
+    {
+        yield return new WaitForSeconds(5);
+
+        GameManager.Instance.RaceStarted = true;
     }
 }
