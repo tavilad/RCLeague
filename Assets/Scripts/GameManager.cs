@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
 
     private void OnSceneFinishedLoading(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name.Equals("test") && GameMode == GameMode.TimeTrial)
+        if ((scene.name.Equals("test") || scene.name.Equals("OvalTrack")) && GameMode == GameMode.TimeTrial)
         {
 //            GameManager.Instance.RaceStarted = true;
 
@@ -74,13 +74,13 @@ public class GameManager : MonoBehaviour
             GameInfo.imagePick = GameObject.FindWithTag("PickupRawImage").GetComponent<RawImage>();
 
             car.GetComponent<TextMeshPro>().text = PhotonNetwork.playerName;
-            
+
             Debug.Log(PlayerPrefs.GetFloat("BestTime"));
 
             StartCoroutine("StartRace");
         }
     }
-    
+
     IEnumerator StartRace()
     {
         yield return new WaitForSeconds(5);

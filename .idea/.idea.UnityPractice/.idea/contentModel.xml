@@ -17,12 +17,173 @@
           <e p="readme.txt" t="Include" />
         </e>
       </e>
-      <e p="Assets\N3K" t="Include">
-        <e p="VirtualJoystick" t="Include">
-          <e p="Scripts" t="Include">
-            <e p="PlayerMovement.cs" t="Include" />
-            <e p="VirtualJoystick.cs" t="Include" />
+      <e p="Assets\ML-Agents" t="Include">
+        <e p="Editor" t="Include">
+          <e p="AgentEditor.cs" t="Include" />
+          <e p="BrainEditor.cs" t="Include" />
+          <e p="MLAgentsEditModeTest.cs" t="Include" />
+          <e p="ResetParameterDrawer.cs" t="Include" />
+        </e>
+        <e p="Examples" t="Include">
+          <e p="3DBall" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="Ball3DAcademy.cs" t="Include" />
+              <e p="Ball3DAgent.cs" t="Include" />
+              <e p="Ball3DDecision.cs" t="Include" />
+              <e p="Ball3DHardAgent.cs" t="Include" />
+            </e>
           </e>
+          <e p="BananaCollectors" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="BananaAcademy.cs" t="Include" />
+              <e p="BananaAgent.cs" t="Include" />
+              <e p="BananaArea.cs" t="Include" />
+              <e p="BananaLogic.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Basic" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="BasicAcademy.cs" t="Include" />
+              <e p="BasicAgent.cs" t="Include" />
+              <e p="BasicDecision.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Bouncer" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="BouncerAcademy.cs" t="Include" />
+              <e p="BouncerAgent.cs" t="Include" />
+              <e p="BouncerBanana.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Crawler" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="CrawlerAcademy.cs" t="Include" />
+              <e p="CrawlerAgent.cs" t="Include" />
+            </e>
+          </e>
+          <e p="GridWorld" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="GridAcademy.cs" t="Include" />
+              <e p="GridAgent.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Hallway" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="HallwayAcademy.cs" t="Include" />
+              <e p="HallwayAgent.cs" t="Include" />
+            </e>
+          </e>
+          <e p="PushBlock" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="GoalDetect.cs" t="Include" />
+              <e p="PushAgentBasic.cs" t="Include" />
+              <e p="PushBlockAcademy.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Pyramids" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="PyramidAcademy.cs" t="Include" />
+              <e p="PyramidAgent.cs" t="Include" />
+              <e p="PyramidArea.cs" t="Include" />
+              <e p="PyramidSwitch.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Reacher" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="ReacherAcademy.cs" t="Include" />
+              <e p="ReacherAgent.cs" t="Include" />
+              <e p="ReacherDecision.cs" t="Include" />
+              <e p="ReacherGoal.cs" t="Include" />
+            </e>
+          </e>
+          <e p="SharedAssets" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="AdjustTrainingTimescale.cs" t="Include" />
+              <e p="Area.cs" t="Include" />
+              <e p="CameraFollow.cs" t="Include" />
+              <e p="FlyCamera.cs" t="Include" />
+              <e p="GroundContact.cs" t="Include" />
+              <e p="JointDriveController.cs" t="Include" />
+              <e p="RandomDecision.cs" t="Include" />
+              <e p="RayPerception.cs" t="Include" />
+              <e p="TargetContact.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Soccer" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="AgentSoccer.cs" t="Include" />
+              <e p="SoccerAcademy.cs" t="Include" />
+              <e p="SoccerBallController.cs" t="Include" />
+              <e p="SoccerFieldArea.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Template" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="TemplateAcademy.cs" t="Include" />
+              <e p="TemplateAgent.cs" t="Include" />
+              <e p="TemplateDecision.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Tennis" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="HitWall.cs" t="Include" />
+              <e p="TennisAcademy.cs" t="Include" />
+              <e p="TennisAgent.cs" t="Include" />
+              <e p="TennisArea.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Walker" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="WalkerAcademy.cs" t="Include" />
+              <e p="WalkerAgent.cs" t="Include" />
+            </e>
+          </e>
+          <e p="WallJump" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="WallJumpAcademy.cs" t="Include" />
+              <e p="WallJumpAgent.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="Academy.cs" t="Include" />
+          <e p="Agent.cs" t="Include" />
+          <e p="Batcher.cs" t="Include" />
+          <e p="BCTeacherHelper.cs" t="Include" />
+          <e p="Brain.cs" t="Include" />
+          <e p="Communicator.cs" t="Include" />
+          <e p="CommunicatorObjects" t="Include">
+            <e p="AgentActionProto.cs" t="Include" />
+            <e p="AgentInfoProto.cs" t="Include" />
+            <e p="BrainParametersProto.cs" t="Include" />
+            <e p="BrainTypeProto.cs" t="Include" />
+            <e p="CommandProto.cs" t="Include" />
+            <e p="EngineConfigurationProto.cs" t="Include" />
+            <e p="EnvironmentParametersProto.cs" t="Include" />
+            <e p="Header.cs" t="Include" />
+            <e p="ResolutionProto.cs" t="Include" />
+            <e p="SpaceTypeProto.cs" t="Include" />
+            <e p="UnityInput.cs" t="Include" />
+            <e p="UnityMessage.cs" t="Include" />
+            <e p="UnityOutput.cs" t="Include" />
+            <e p="UnityRlInitializationInput.cs" t="Include" />
+            <e p="UnityRlInitializationOutput.cs" t="Include" />
+            <e p="UnityRlInput.cs" t="Include" />
+            <e p="UnityRlOutput.cs" t="Include" />
+            <e p="UnityToExternal.cs" t="Include" />
+            <e p="UnityToExternalGrpc.cs" t="Include" />
+          </e>
+          <e p="CoreBrain.cs" t="Include" />
+          <e p="CoreBrainExternal.cs" t="Include" />
+          <e p="CoreBrainHeuristic.cs" t="Include" />
+          <e p="CoreBrainInternal.cs" t="Include" />
+          <e p="CoreBrainPlayer.cs" t="Include" />
+          <e p="Decision.cs" t="Include" />
+          <e p="Monitor.cs" t="Include" />
+          <e p="ResetParameters.cs" t="Include" />
+          <e p="RpcCommunicator.cs" t="Include" />
+          <e p="SocketCommunicator.cs" t="Include" />
+          <e p="UnityAgentsException.cs" t="Include" />
         </e>
       </e>
       <e p="Assets\Photon" t="Include">
