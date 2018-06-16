@@ -29,7 +29,6 @@ public class LapManager : MonoBehaviour
         waypts[0].gameObject.SetActive(false);
         timer = 0f;
         CheckpointManager.OnLapFinished += HandleOnLapChanged;
-        
     }
 
     private void Update()
@@ -56,7 +55,11 @@ public class LapManager : MonoBehaviour
 
     private void HandleOnLapChanged()
     {
-        PlayerPrefs.SetFloat("BestTime",timer);
+        if (timer < PlayerPrefs.GetFloat("BestTime"))
+        {
+            PlayerPrefs.SetFloat("BestTime", timer);
+        }
+
         timer = 0f;
         Debug.Log(PlayerPrefs.GetFloat("BestTime"));
     }
