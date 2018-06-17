@@ -73,9 +73,9 @@ public class GameManager : MonoBehaviour
 
             GameInfo.imagePick = GameObject.FindWithTag("PickupRawImage").GetComponent<RawImage>();
 
-            car.GetComponent<TextMeshPro>().text = PhotonNetwork.playerName;
+            car.GetComponentInChildren<TextMeshPro>().text = PhotonNetwork.playerName;
 
-            Debug.Log(PlayerPrefs.GetFloat("BestTime"));
+            Debug.Log(PlayerPrefs.GetFloat("BestLap"));
 
             StartCoroutine("StartRace");
         }

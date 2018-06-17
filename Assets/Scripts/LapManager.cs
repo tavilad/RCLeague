@@ -29,6 +29,8 @@ public class LapManager : MonoBehaviour
         waypts[0].gameObject.SetActive(false);
         timer = 0f;
         CheckpointManager.OnLapFinished += HandleOnLapChanged;
+
+        _bestTimeText.text += PlayerPrefs.GetFloat("BestLap");
     }
 
     private void Update()
@@ -43,10 +45,7 @@ public class LapManager : MonoBehaviour
                 if (currentLap > numberOfLaps)
                 {
                     GameManager.Instance.DidFinishRace = true;
-                    if (OnRaceFinished != null)
-                    {
-                        OnRaceFinished();
-                    }
+                    OnRaceFinished?.Invoke();
                 }
             }
         }
@@ -55,12 +54,14 @@ public class LapManager : MonoBehaviour
 
     private void HandleOnLapChanged()
     {
-        if (timer < PlayerPrefs.GetFloat("BestTime"))
+        if (timer < PlayerPrefs.GetFloat("BestLap"))
         {
-            PlayerPrefs.SetFloat("BestTime", timer);
+            PlayerPrefs.SetFloat("BestLap", timer);
         }
-
+    
+        PlayerPrefs.Save();
+        
         timer = 0f;
-        Debug.Log(PlayerPrefs.GetFloat("BestTime"));
+        Debug.Log(PlayerPrefs.GetFloat("BestLap"));
     }
 }

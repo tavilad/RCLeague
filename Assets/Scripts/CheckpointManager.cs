@@ -33,8 +33,8 @@ public class CheckpointManager : MonoBehaviour
                 if (LapManager.currentCheckpoint == 0)
                     LapManager.currentLap++;
                 LapManager.currentCheckpoint++;
-                if (OnLapFinished != null)
-                    OnLapFinished();
+
+                OnLapFinished?.Invoke();
             }
             else
             {

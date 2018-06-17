@@ -100,6 +100,13 @@ public class GameInfo : MonoBehaviour
         return pickupsData[index];
     }
 
+    private void FireRocket()
+    {
+        Debug.Log("FIRING ROCKET!");
+        PhotonNetwork.Instantiate("RocketTest", transform.position + new Vector3(0f, 0.5f, 0f) + transform.forward * 2,
+            transform.rotation, 0);
+    }
+
     public void ActivatePickUp()
     {
         if (hasPickup && photonView.isMine)
@@ -113,6 +120,7 @@ public class GameInfo : MonoBehaviour
                     break;
                 case "Rocket":
                     Debug.Log("Activating " + currentPick.name);
+                    FireRocket();
                     break;
                 case "Bomb":
                     Debug.Log("Activating " + currentPick.name);
