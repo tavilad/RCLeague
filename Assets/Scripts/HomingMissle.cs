@@ -49,9 +49,6 @@ public class HomingMissle : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.tag.Equals("Car") && !col.gameObject.GetComponent<PhotonView>().isMine)
-        {
-            Destroy(gameObject);
-        }
+        PhotonNetwork.Destroy(gameObject);
     }
 }
