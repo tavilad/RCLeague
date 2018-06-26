@@ -5,8 +5,7 @@ using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class LapManager : MonoBehaviour
-{
+public class LapManager : MonoBehaviour {
     public Transform[] wayPoints = new Transform[22];
     public static int currentCheckpoint;
     public static int currentLap;
@@ -21,8 +20,7 @@ public class LapManager : MonoBehaviour
     [SerializeField] private Text _timerText;
     [SerializeField] private Text _bestTimeText;
 
-    private void Start()
-    {
+    private void Start() {
         currentCheckpoint = 0;
         currentLap = 1;
         waypts = wayPoints;
@@ -30,20 +28,24 @@ public class LapManager : MonoBehaviour
         timer = 0f;
         CheckpointManager.OnLapFinished += HandleOnLapChanged;
 
-        _bestTimeText.text += PlayerPrefs.GetFloat("BestLap");
+        
+        PlayerPrefs.DeleteKey("BestLap");
+
+        if (PlayerPrefs.HasKey("BestLap")) {
+            _bestTimeText.text += PlayerPrefs.GetFloat("BestLap");
+        } else {
+            PlayerPrefs.SetFloat("BestLap", 55);
+            _bestTimeText.text += PlayerPrefs.GetFloat("BestLap");
+        }
     }
 
-    private void Update()
-    {
-        if (GameManager.Instance.RaceStarted)
-        {
+    private void Update() {
+        if (GameManager.Instance.RaceStarted) {
             timer += Time.deltaTime;
-            _timerText.text = timer.ToString();
+            _timerText.text = "Current lap time:" + (int) timer;
             if (GameManager.Instance.GameMode == GameMode.Multiplayer ||
-                GameManager.Instance.GameMode == GameMode.SinglePlayer)
-            {
-                if (currentLap > numberOfLaps)
-                {
+                GameManager.Instance.GameMode == GameMode.SinglePlayer) {
+                if (currentLap > numberOfLaps) {
                     GameManager.Instance.DidFinishRace = true;
                     OnRaceFinished?.Invoke();
                 }
@@ -52,15 +54,15 @@ public class LapManager : MonoBehaviour
     }
 
 
-    private void HandleOnLapChanged()
-    {
-        if (timer < PlayerPrefs.GetFloat("BestLap"))
-        {
+    private void HandleOnLapChanged() {
+        if (timer < PlayerPrefs.GetFloat("BestLap")) {
             PlayerPrefs.SetFloat("BestLap", timer);
         }
-    
+
+        this._bestTimeText.text = "Best lap time: " + PlayerPrefs.GetFloat("BestLap").ToString();
+
         PlayerPrefs.Save();
-        
+
         timer = 0f;
         Debug.Log(PlayerPrefs.GetFloat("BestLap"));
     }

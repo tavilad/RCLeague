@@ -29,6 +29,16 @@ TagManager:
   - PickUp
   - Car
   - CarObject
+  - Terrain
+  - SpawnPoints
+  - PlayerControlCanvas
+  - Left
+  - Flip
+  - jump
+  - Right
+  - PickupRawImage
+  - Ramp
+  - SpeedText
   layers:
   - Default
   - TransparentFX
