@@ -26,6 +26,9 @@ TagManager:
   - pyramid
   - switchOn
   - stone
+  - PickUp
+  - Car
+  - CarObject
   layers:
   - Default
   - TransparentFX

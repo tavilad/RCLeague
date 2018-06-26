@@ -16,7 +16,6 @@ public class JoystickController : MonoBehaviour, IDragHandler, IPointerUpHandler
         get { return _inputVector; }
     }
 
-    // Use this for initialization
     void Start()
     {
         this._backgroundImage = GetComponent<Image>();

@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 64234496965501134}
   m_Layer: 0
   m_Name: Cartest
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 114889541474029814}
   m_Layer: 0
   m_Name: Car
-  m_TagString: Car
+  m_TagString: CarObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1274,7 +1274,7 @@ MonoBehaviour:
     TeleportIfDistanceGreaterThan: 3
     InterpolateOption: 4
     InterpolateMoveTowardsSpeed: 1
-    InterpolateLerpSpeed: 15
+    InterpolateLerpSpeed: 10
     InterpolateMoveTowardsAcceleration: 2
     InterpolateMoveTowardsDeceleration: 2
     InterpolateSpeedCurve:
@@ -1353,7 +1353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ce02ec3a559b3a498f0eb11250a7331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTorque: 50
+  maxTorque: 40
   maxSteerAngle: 15
   centerOfMass: {fileID: 4922406907085538}
   wheelcolliders:
@@ -1374,7 +1374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wheelLeft: {fileID: 146094478498161880}
   wheelRight: {fileID: 146837275360047968}
-  antiRoll: 100
+  antiRoll: 50
 --- !u!114 &114525148884076552
 MonoBehaviour:
   m_ObjectHideFlags: 1

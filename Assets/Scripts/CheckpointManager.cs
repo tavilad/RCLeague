@@ -19,6 +19,7 @@ public class CheckpointManager : MonoBehaviour
         }
 
         LapManager.waypts[0].gameObject.SetActive(true);
+        
         if (!collider.CompareTag("Car"))
         {
             Debug.Log(collider.transform.tag);

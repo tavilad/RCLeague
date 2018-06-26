@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
         {
             CarList.Sort((x, y) => x.DistanceToCheckpoint.CompareTo(y.DistanceToCheckpoint));
 
-            Debug.Log(CarList[0].GetComponent<PhotonView>().viewID);
+//            Debug.Log(CarList[0].GetComponent<PhotonView>().viewID);
         }
     }
 

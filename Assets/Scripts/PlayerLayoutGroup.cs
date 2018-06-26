@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerLayoutGroup : MonoBehaviour
 {
-
-
     [SerializeField] private GameObject _playerListingPrefab;
 
     public GameObject PlayerListingPrefab
@@ -26,17 +24,16 @@ public class PlayerLayoutGroup : MonoBehaviour
     {
         PhotonNetwork.LeaveRoom();
     }
-    
+
     private void OnJoinedRoom()
     {
-
         foreach (Transform child in transform)
         {
             Destroy(child.gameObject);
         }
-        
+
         MainCanvasManager.Instance.CurrentRoomCanvas.transform.SetAsLastSibling();
-        
+
         PhotonPlayer[] photonPlayers = PhotonNetwork.playerList;
 
         for (int i = 0; i < photonPlayers.Length; i++)
@@ -59,7 +56,7 @@ public class PlayerLayoutGroup : MonoBehaviour
     {
         if (photonPlayer == null)
             return;
-        
+
         PlayerLeftRoom(photonPlayer);
 
         GameObject playerListingObj = Instantiate(PlayerListingPrefab);
@@ -68,7 +65,7 @@ public class PlayerLayoutGroup : MonoBehaviour
 
         PlayerListing playerListing = playerListingObj.GetComponent<PlayerListing>();
         playerListing.ApplyPhotonPlayer(photonPlayer);
-        
+
         PlayerListings.Add(playerListing);
     }
 
@@ -87,7 +84,7 @@ public class PlayerLayoutGroup : MonoBehaviour
     {
         if (!PhotonNetwork.isMasterClient)
             return;
-        
+
         PhotonNetwork.room.IsOpen = !PhotonNetwork.room.IsOpen;
         PhotonNetwork.room.IsVisible = PhotonNetwork.room.IsOpen;
     }
