@@ -453,6 +453,8 @@
           <e p="AntiRollBar.cs" t="Include" />
           <e p="ButtonScript.cs" t="Include" />
           <e p="CameraMovement.cs" t="Include" />
+          <e p="CarAIControl.cs" t="Include" />
+          <e p="CarRaycasts.cs" t="Include" />
           <e p="CheckpointManager.cs" t="Include" />
           <e p="CreateRoom.cs" t="Include" />
           <e p="CurrentRoomCanvas.cs" t="Include" />

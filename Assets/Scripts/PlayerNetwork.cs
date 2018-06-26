@@ -5,8 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class PlayerNetwork : MonoBehaviour
-{
+public class PlayerNetwork : MonoBehaviour {
     public static PlayerNetwork Instance;
 
 
@@ -19,8 +18,15 @@ public class PlayerNetwork : MonoBehaviour
     private List<GameObject> spawnPoints;
 
 
-    private void Awake()
-    {
+    public GameObject CountDownObject;
+
+    private TextMeshProUGUI _countDownText;
+
+    private int _countDownDuration = 5;
+
+    private float _countDownTemp = 5;
+
+    private void Awake() {
         Instance = this;
 
         PhotonView = GetComponent<PhotonView>();
@@ -29,10 +35,20 @@ public class PlayerNetwork : MonoBehaviour
     }
 
 
-    private void OnSceneFinishedLoading(Scene scene, LoadSceneMode mode)
-    {
-        if (GameManager.Instance.GameMode == GameMode.Multiplayer)
-        {
+    private void Update() {
+        if (_countDownText != null) {
+            _countDownTemp -= Time.deltaTime;
+            _countDownText.text = ((int) _countDownTemp).ToString();
+            if (_countDownTemp <= 0) {
+                CountDownObject.SetActive(false);
+            }
+        }
+    }
+
+
+    private void OnSceneFinishedLoading(Scene scene, LoadSceneMode mode) {
+        if (GameManager.Instance.GameMode == GameMode.Multiplayer) {
+
             Debug.Log("scene finished loading");
             PhotonView.RPC("RPC_LoadedGameScene", PhotonTargets.MasterClient, PhotonNetwork.player);
         }
@@ -40,19 +56,16 @@ public class PlayerNetwork : MonoBehaviour
 
 
     [PunRPC]
-    private void RPC_LoadedGameScene(PhotonPlayer photonPlayer)
-    {
+    private void RPC_LoadedGameScene(PhotonPlayer photonPlayer) {
         PlayersInGame++;
-        if (PlayersInGame == PhotonNetwork.playerList.Length)
-        {
+        if (PlayersInGame == PhotonNetwork.playerList.Length) {
             Debug.Log("All players are in the game scene.");
             PhotonView.RPC("RPC_CreatePlayer", PhotonTargets.All);
         }
     }
 
     [PunRPC]
-    private void RPC_CreatePlayer()
-    {
+    private void RPC_CreatePlayer() {
         spawnPoints = GetSpawnPoints();
 
         GameObject car = PhotonNetwork.Instantiate(playerPrefab.name,
@@ -72,19 +85,21 @@ public class PlayerNetwork : MonoBehaviour
         GameManager.Instance.CarList.Add(car.GetComponent<LapTracker>());
 
         PickupClickHandler.Car = car;
+        
+        CountDownObject = GameObject.FindWithTag("CountDownText");
+
+        _countDownText = CountDownObject.GetComponent<TextMeshProUGUI>();
 
         StartCoroutine("StartRace");
     }
 
 
-    public static List<GameObject> GetSpawnPoints()
-    {
+    public static List<GameObject> GetSpawnPoints() {
         GameObject root = GameObject.FindWithTag("SpawnPoints");
 
         List<GameObject> points = new List<GameObject>();
 
-        foreach (Transform child in root.transform)
-        {
+        foreach (Transform child in root.transform) {
             points.Add(child.gameObject);
         }
 
@@ -92,8 +107,7 @@ public class PlayerNetwork : MonoBehaviour
     }
 
 
-    IEnumerator StartRace()
-    {
+    IEnumerator StartRace() {
         yield return new WaitForSeconds(5);
 
         GameManager.Instance.RaceStarted = true;

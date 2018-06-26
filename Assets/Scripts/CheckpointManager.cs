@@ -25,10 +25,12 @@ public class CheckpointManager : MonoBehaviour {
         if (transform == LapManager.waypts[LapManager.currentCheckpoint].transform) {
             if (LapManager.currentCheckpoint + 1 < LapManager.waypts.Length) {
                 //Add to currentLap if currentCheckpoint is 0
-                if (LapManager.currentCheckpoint == 0) LapManager.currentLap++;
-                LapManager.currentCheckpoint++;
+                if (LapManager.currentCheckpoint == 0) {
+                    LapManager.currentLap++;
+                    OnLapFinished?.Invoke();
+                }
 
-                OnLapFinished?.Invoke();
+                LapManager.currentCheckpoint++;
             } else {
                 //If we dont have any Checkpoints left, go back to 0
                 LapManager.currentCheckpoint = 0;

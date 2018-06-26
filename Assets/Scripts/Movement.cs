@@ -21,6 +21,7 @@ public class Movement : MonoBehaviour {
 
 
     private GameObject _speedText;
+    public int currentspeed;
 
 
     #region SyncVariables
@@ -49,9 +50,8 @@ public class Movement : MonoBehaviour {
 
 
     private void FixedUpdate() {
-
-        int kph = (int)(rigidbody.velocity.magnitude * 3.6);
-        _speedText.GetComponent<Text>().text = kph.ToString();
+        currentspeed = (int) (rigidbody.velocity.magnitude * 3.6);
+        _speedText.GetComponent<Text>().text = currentspeed.ToString() + " kph";
 
         if (GameManager.Instance.RaceStarted) {
             if (_photonView.isMine || GameManager.Instance.GameMode == GameMode.SinglePlayer ||
@@ -128,6 +128,18 @@ public class Movement : MonoBehaviour {
 
         foreach (WheelCollider wheel in wheelcolliders) {
             wheel.motorTorque = 0f;
+        }
+    }
+
+    public void Move(float steer, float speed, float breakSpeed) {
+        wheelcolliders[0].steerAngle = steer;
+        wheelcolliders[1].steerAngle = steer;
+
+        Debug.Log("move");
+
+        foreach (var wheelCollider in wheelcolliders) {
+            wheelCollider.motorTorque = speed;
+            wheelCollider.brakeTorque = breakSpeed;
         }
     }
 }

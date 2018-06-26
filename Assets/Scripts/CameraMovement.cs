@@ -4,6 +4,8 @@ public class CameraMovement : MonoBehaviour
 {
     public static Transform target;
 
+    public Transform car;
+
     public float distance = 10.0f;
 
     public float height = 5.0f;
