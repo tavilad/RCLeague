@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class LapManager : MonoBehaviour
 {
-    public Transform[] wayPoints = new Transform[2];
+    public Transform[] wayPoints = new Transform[22];
     public static int currentCheckpoint;
     public static int currentLap;
     public static Transform[] waypts;

@@ -14,7 +14,7 @@ public class GameInfo : MonoBehaviour
     private bool hasPickup;
 
 
-    private float respawnTime = 5f;
+    private float respawnTime = 15f;
 
     private Vector3 respawnPosition;
     public GameObject pickupPrefab;
@@ -87,7 +87,7 @@ public class GameInfo : MonoBehaviour
     {
         trails.SetActive(true);
         movement.maxTorque += speedBonus;
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(3);
         movement.maxTorque -= speedBonus;
         trails.SetActive(false);
     }
