@@ -71,6 +71,8 @@ public class PlayerNetwork : MonoBehaviour
 
         GameManager.Instance.CarList.Add(car.GetComponent<LapTracker>());
 
+        PickupClickHandler.Car = car;
+
         StartCoroutine("StartRace");
     }
 

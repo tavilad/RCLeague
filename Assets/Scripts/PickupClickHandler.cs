@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PickupClickHandler : MonoBehaviour, IPointerClickHandler
-{
+public class PickupClickHandler : MonoBehaviour, IPointerClickHandler {
+    public static GameObject Car;
 
 
+    public void OnPointerClick(PointerEventData eventData) {
+        Debug.Log("click");
 
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        GetComponent<GameInfo>().ActivatePickUp();
+        Car.GetComponent<GameInfo>().ActivatePickUp();
     }
 }
