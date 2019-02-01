@@ -657,79 +657,79 @@ public class PhotonEditor : EditorWindow
 
     public static void UpdateRpcList()
     {
-        List<string> additionalRpcs = new List<string>();
-        HashSet<string> currentRpcs = new HashSet<string>();
-
-        var types = GetAllSubTypesInScripts(typeof(MonoBehaviour));
-
-        int countOldRpcs = 0;
-        foreach (var mono in types)
-        {
-            MethodInfo[] methods = mono.GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
-
-            foreach (MethodInfo method in methods)
-            {
-                bool isOldRpc = false;
-                #pragma warning disable 618
-                // we let the Editor check for outdated RPC attributes in code. that should not cause a compile warning
-                if (method.IsDefined(typeof (RPC), false))
-                {
-                    countOldRpcs++;
-                    isOldRpc = true;
-                }
-                #pragma warning restore 618
-
-                if (isOldRpc || method.IsDefined(typeof(PunRPC), false))
-                {
-                    currentRpcs.Add(method.Name);
-
-                    if (!additionalRpcs.Contains(method.Name) && !PhotonNetwork.PhotonServerSettings.RpcList.Contains(method.Name))
-                    {
-                        additionalRpcs.Add(method.Name);
-                    }
-                }
-            }
-        }
-
-        if (additionalRpcs.Count > 0)
-        {
-            // LIMITS RPC COUNT
-            if (additionalRpcs.Count + PhotonNetwork.PhotonServerSettings.RpcList.Count >= byte.MaxValue)
-            {
-                if (currentRpcs.Count <= byte.MaxValue)
-                {
-                    bool clearList = EditorUtility.DisplayDialog(CurrentLang.IncorrectRPCListTitle, CurrentLang.IncorrectRPCListLabel, CurrentLang.RemoveOutdatedRPCsLabel, CurrentLang.CancelButton);
-                    if (clearList)
-                    {
-                        PhotonNetwork.PhotonServerSettings.RpcList.Clear();
-                        PhotonNetwork.PhotonServerSettings.RpcList.AddRange(currentRpcs);
-                    }
-                    else
-                    {
-                        return;
-                    }
-                }
-                else
-                {
-                    EditorUtility.DisplayDialog(CurrentLang.FullRPCListTitle, CurrentLang.FullRPCListLabel, CurrentLang.SkipRPCListUpdateLabel);
-                    return;
-                }
-            }
-
-            additionalRpcs.Sort();
-            Undo.RecordObject(PhotonNetwork.PhotonServerSettings, "Update PUN RPC-list");
-            PhotonNetwork.PhotonServerSettings.RpcList.AddRange(additionalRpcs);
-            PhotonEditor.SaveSettings();
-        }
-
-        if (countOldRpcs > 0)
-        {
-            bool convertRPCs = EditorUtility.DisplayDialog(CurrentLang.RpcFoundDialogTitle, CurrentLang.RpcFoundMessage, CurrentLang.RpcReplaceButton, CurrentLang.RpcSkipReplace);
-            if (convertRPCs)
-            {
-                PhotonConverter.ConvertRpcAttribute("");
-            }
-        }
+//        List<string> additionalRpcs = new List<string>();
+//        HashSet<string> currentRpcs = new HashSet<string>();
+//
+//        var types = GetAllSubTypesInScripts(typeof(MonoBehaviour));
+//
+//        int countOldRpcs = 0;
+//        foreach (var mono in types)
+//        {
+//            MethodInfo[] methods = mono.GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+//
+//            foreach (MethodInfo method in methods)
+//            {
+//                bool isOldRpc = false;
+//                #pragma warning disable 618
+//                // we let the Editor check for outdated RPC attributes in code. that should not cause a compile warning
+//                if (method.IsDefined(typeof (RPC), false))
+//                {
+//                    countOldRpcs++;
+//                    isOldRpc = true;
+//                }
+//                #pragma warning restore 618
+//
+//                if (isOldRpc || method.IsDefined(typeof(PunRPC), false))
+//                {
+//                    currentRpcs.Add(method.Name);
+//
+//                    if (!additionalRpcs.Contains(method.Name) && !PhotonNetwork.PhotonServerSettings.RpcList.Contains(method.Name))
+//                    {
+//                        additionalRpcs.Add(method.Name);
+//                    }
+//                }
+//            }
+//        }
+//
+//        if (additionalRpcs.Count > 0)
+//        {
+//            // LIMITS RPC COUNT
+//            if (additionalRpcs.Count + PhotonNetwork.PhotonServerSettings.RpcList.Count >= byte.MaxValue)
+//            {
+//                if (currentRpcs.Count <= byte.MaxValue)
+//                {
+//                    bool clearList = EditorUtility.DisplayDialog(CurrentLang.IncorrectRPCListTitle, CurrentLang.IncorrectRPCListLabel, CurrentLang.RemoveOutdatedRPCsLabel, CurrentLang.CancelButton);
+//                    if (clearList)
+//                    {
+//                        PhotonNetwork.PhotonServerSettings.RpcList.Clear();
+//                        PhotonNetwork.PhotonServerSettings.RpcList.AddRange(currentRpcs);
+//                    }
+//                    else
+//                    {
+//                        return;
+//                    }
+//                }
+//                else
+//                {
+//                    EditorUtility.DisplayDialog(CurrentLang.FullRPCListTitle, CurrentLang.FullRPCListLabel, CurrentLang.SkipRPCListUpdateLabel);
+//                    return;
+//                }
+//            }
+//
+//            additionalRpcs.Sort();
+//            Undo.RecordObject(PhotonNetwork.PhotonServerSettings, "Update PUN RPC-list");
+//            PhotonNetwork.PhotonServerSettings.RpcList.AddRange(additionalRpcs);
+//            PhotonEditor.SaveSettings();
+//        }
+//
+//        if (countOldRpcs > 0)
+//        {
+//            bool convertRPCs = EditorUtility.DisplayDialog(CurrentLang.RpcFoundDialogTitle, CurrentLang.RpcFoundMessage, CurrentLang.RpcReplaceButton, CurrentLang.RpcSkipReplace);
+//            if (convertRPCs)
+//            {
+//                PhotonConverter.ConvertRpcAttribute("");
+//            }
+//        }
     }
 
     public static void ClearRpcList()

@@ -48,7 +48,6 @@ public class PlayerNetwork : MonoBehaviour {
 
     private void OnSceneFinishedLoading(Scene scene, LoadSceneMode mode) {
         if (GameManager.Instance.GameMode == GameMode.Multiplayer) {
-
             Debug.Log("scene finished loading");
             PhotonView.RPC("RPC_LoadedGameScene", PhotonTargets.MasterClient, PhotonNetwork.player);
         }
@@ -82,13 +81,14 @@ public class PlayerNetwork : MonoBehaviour {
 
         car.GetComponentInChildren<TextMeshPro>().text = PhotonNetwork.playerName;
 
-        GameManager.Instance.CarList.Add(car.GetComponent<LapTracker>());
 
         PickupClickHandler.Car = car;
-        
+
         CountDownObject = GameObject.FindWithTag("CountDownText");
 
         _countDownText = CountDownObject.GetComponent<TextMeshProUGUI>();
+
+        car.gameObject.name = PhotonNetwork.playerName;
 
         StartCoroutine("StartRace");
     }

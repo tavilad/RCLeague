@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -62,6 +63,10 @@ public class GameInfo : MonoBehaviour {
                     imagePick.texture = currentPick.texture;
                     Debug.Log("pick " + currentPick.name);
 
+                    if (currentPick.name == "Bomb") {
+                        StartCoroutine(Image());
+                    }
+
 
                     hasPickup = true;
                     respawnPosition = col.gameObject.transform.position;
@@ -77,6 +82,10 @@ public class GameInfo : MonoBehaviour {
                         currentPick = GetPickup();
                         imagePick.texture = currentPick.texture;
                         Debug.Log("pick " + currentPick.name);
+
+                        if (currentPick.name == "Bomb") {
+                            StartCoroutine(Image());
+                        }
 
 
                         hasPickup = true;
@@ -150,7 +159,7 @@ public class GameInfo : MonoBehaviour {
                     break;
                 case "Bomb":
                     Debug.Log("Activating " + currentPick.name);
-                    rb.AddExplosionForce(explosionPower, transform.position, explosionRadius);
+                    StartCoroutine(Image());
                     Debug.Log("Explosion");
                     break;
             }
@@ -172,7 +181,8 @@ public class GameInfo : MonoBehaviour {
                         break;
                     case "Bomb":
                         Debug.Log("Activating " + currentPick.name);
-                        rb.AddExplosionForce(explosionPower, transform.position, explosionRadius);
+//                        rb.AddExplosionForce(explosionPower, transform.position, explosionRadius, 10f, ForceMode.Force);
+                        StartCoroutine(Image());
                         Debug.Log("Explosion");
                         break;
                 }
@@ -183,6 +193,23 @@ public class GameInfo : MonoBehaviour {
             }
         }
     }
+
+
+    private IEnumerator Image() {
+        yield return new WaitForSeconds(2f);
+        imagePick.texture = null;
+        imagePick.gameObject.SetActive(false);
+        hasPickup = false;
+        StartCoroutine(SlowDown());
+    }
+
+
+    private IEnumerator SlowDown() {
+        movement.maxTorque = 0f;
+        yield return new WaitForSeconds(3);
+        movement.maxTorque = 50f;
+    }
+
 
     [PunRPC]
     public void SetPlayerName() {

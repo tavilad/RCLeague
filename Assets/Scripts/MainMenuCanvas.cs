@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class MainMenuCanvas : MonoBehaviour {
     [SerializeField] private Text _playerName;
+    
+    
 
     public void OnClickSinglePlayer() {
         GameManager.Instance.GameMode = GameMode.SinglePlayer;
@@ -16,6 +18,7 @@ public class MainMenuCanvas : MonoBehaviour {
 
 
     public void OnClickMultiPlayer() {
+        
         GameManager.Instance.GameMode = GameMode.Multiplayer;
         MainCanvasManager.Instance.LobbyCanvas.transform.SetAsLastSibling();
         GameManager.Instance.PlayerName = _playerName.text;
@@ -26,5 +29,9 @@ public class MainMenuCanvas : MonoBehaviour {
         GameManager.Instance.GameMode = GameMode.TimeTrial;
         GameManager.Instance.PlayerName = _playerName.text;
         SceneManager.LoadScene("test");
+    }
+
+    public void OnClickOptionsMenu() {
+        MainCanvasManager.Instance.OptionsMenuCanvas.transform.SetAsLastSibling();
     }
 }

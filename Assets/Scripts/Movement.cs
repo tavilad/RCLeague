@@ -1,4 +1,5 @@
 ﻿using Assets;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
@@ -22,6 +23,9 @@ public class Movement : MonoBehaviour {
 
     private GameObject _speedText;
     public int currentspeed;
+    public bool stunned;
+
+    public GameObject text;
 
 
     #region SyncVariables
@@ -46,14 +50,27 @@ public class Movement : MonoBehaviour {
         _photonView = transform.GetComponent<PhotonView>();
         LapManager.OnRaceFinished += HandleOnRaceFinished;
         _speedText = GameObject.FindWithTag("SpeedText");
+
+        if (Application.platform == RuntimePlatform.WindowsPlayer ||
+            Application.platform == RuntimePlatform.WindowsEditor) {
+            _joystickController.gameObject.SetActive(false);
+        }
     }
 
 
     private void FixedUpdate() {
-        currentspeed = (int) (rigidbody.velocity.magnitude * 3.6);
-        _speedText.GetComponent<Text>().text = currentspeed.ToString() + " kph";
+        if (GameManager.Instance.SpeedMeasurement == SpeedMeasurement.KPH) {
+            currentspeed = (int) (rigidbody.velocity.magnitude * 3.6);
+            _speedText.GetComponent<Text>().text = currentspeed.ToString() + " KPH";
+        } else {
+            if (GameManager.Instance.SpeedMeasurement == SpeedMeasurement.MPH) {
+                currentspeed = (int) (rigidbody.velocity.magnitude * 2.237);
+                _speedText.GetComponent<Text>().text = currentspeed.ToString() + " MPH";
+            }
+        }
 
-        if (GameManager.Instance.RaceStarted) {
+
+        if (GameManager.Instance.RaceStarted && !stunned) {
             if (_photonView.isMine || GameManager.Instance.GameMode == GameMode.SinglePlayer ||
                 GameManager.Instance.GameMode == GameMode.TimeTrial) {
                 if (Application.platform == RuntimePlatform.Android) {
@@ -126,9 +143,27 @@ public class Movement : MonoBehaviour {
 
         GameManager.Instance.RaceStarted = false;
 
+        _photonView.RPC("AddToList", PhotonTargets.All);
+
+
+        text = GameObject.FindWithTag("FinishText");
+
+//        text.GetComponent<TextMeshProUGUI>().text=GameManager.Instance.CarList.
+
+        for (int i = 0; i < GameManager.Instance.CarList.Count; i++) {
+            if (GameManager.Instance.CarList[i] == gameObject) {
+                text.GetComponent<TextMeshProUGUI>().text = "Position: " + (i + 1).ToString();
+            }
+        }
+
         foreach (WheelCollider wheel in wheelcolliders) {
             wheel.motorTorque = 0f;
         }
+    }
+
+    [PunRPC]
+    void AddToList() {
+        GameManager.Instance.CarList.Add(gameObject);
     }
 
     public void Move(float steer, float speed, float breakSpeed) {

@@ -27,6 +27,10 @@ public class MainCanvasManager : MonoBehaviour
         get { return _mainMenuCanvas; }
     }
 
+    [SerializeField] private OptionsMenuCanvas _optionsMenuCanvas;
+
+    public OptionsMenuCanvas OptionsMenuCanvas => _optionsMenuCanvas;
+
     private void Awake()
     {
         if (Instance == null)

@@ -5,6 +5,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
+public enum SpeedMeasurement {
+    KPH = 0,
+    MPH = 1
+}
+
+
 public class GameManager : MonoBehaviour {
     public static GameManager Instance;
 
@@ -27,9 +34,11 @@ public class GameManager : MonoBehaviour {
 
     public bool DidFinishRace { get; set; }
 
-    public List<LapTracker> CarList;
+    public List<GameObject> CarList;
 
     public GameObject playerPrefab;
+
+    public SpeedMeasurement SpeedMeasurement;
 
     private void Awake() {
         if (Instance == null) Instance = this;
@@ -42,19 +51,13 @@ public class GameManager : MonoBehaviour {
 
         DidFinishRace = false;
 
-        CarList = new List<LapTracker>();
+        CarList = new List<GameObject>();
 
         SceneManager.sceneLoaded += OnSceneFinishedLoading;
     }
 
 
     private void Update() {
-        if (CarList.Count > 0) {
-            CarList.Sort((x, y) => x.DistanceToCheckpoint.CompareTo(y.DistanceToCheckpoint));
-
-//            Debug.Log(CarList[0].GetComponent<PhotonView>().viewID);
-        }
-
         if (_countDownText != null) {
             _countDownTemp -= Time.deltaTime;
             _countDownText.text = ((int) _countDownTemp).ToString();

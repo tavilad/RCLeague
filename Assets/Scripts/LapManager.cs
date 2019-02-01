@@ -10,7 +10,7 @@ public class LapManager : MonoBehaviour {
     public static int currentCheckpoint;
     public static int currentLap;
     public static Transform[] waypts;
-    public static int numberOfLaps = 2;
+    public static int numberOfLaps = 1;
     public static float timer;
 
     public delegate void LapDelegate();
@@ -20,6 +20,8 @@ public class LapManager : MonoBehaviour {
     [SerializeField] private Text _timerText;
     [SerializeField] private Text _bestTimeText;
 
+    public GameObject FinishCanvas;
+
     private void Start() {
         currentCheckpoint = 0;
         currentLap = 1;
@@ -28,6 +30,8 @@ public class LapManager : MonoBehaviour {
         timer = 0f;
         CheckpointManager.OnLapFinished += HandleOnLapChanged;
 
+
+//        PlayerPrefs.DeleteKey("BestLap");
 
         if (PlayerPrefs.HasKey("BestLap")) {
             _bestTimeText.text += PlayerPrefs.GetFloat("BestLap");
@@ -45,6 +49,7 @@ public class LapManager : MonoBehaviour {
                 GameManager.Instance.GameMode == GameMode.SinglePlayer) {
                 if (currentLap > numberOfLaps) {
                     GameManager.Instance.DidFinishRace = true;
+                    FinishCanvas.SetActive(true);
                     OnRaceFinished?.Invoke();
                 }
             }
@@ -63,5 +68,10 @@ public class LapManager : MonoBehaviour {
 
         timer = 0f;
         Debug.Log(PlayerPrefs.GetFloat("BestLap"));
+    }
+
+
+    public void OnClickQuit() {
+        Application.Quit();
     }
 }

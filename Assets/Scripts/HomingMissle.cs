@@ -8,6 +8,8 @@ public class HomingMissle : MonoBehaviour {
     [SerializeField] private Transform _target;
     [SerializeField] private Rigidbody _rigidbody;
 
+    private Movement movement;
+
     void Start() {
         _rigidbody = GetComponent<Rigidbody>();
         Fire();
@@ -44,6 +46,16 @@ public class HomingMissle : MonoBehaviour {
     }
 
     void OnCollisionEnter(Collision col) {
-        PhotonNetwork.Destroy(gameObject);
+        movement = col.gameObject.GetComponent<Movement>();
+
+        if (movement != null) {
+            StartCoroutine("DisableMovement");
+        }
+    }
+
+
+    IEnumerator DisableMovement() {
+        yield return new WaitForSeconds(2f);
+        _target = null;
     }
 }
