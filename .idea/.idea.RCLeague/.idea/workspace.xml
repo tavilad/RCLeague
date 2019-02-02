@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86a07cb4-0fb4-446e-ba25-d4b584886605" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.RCLeague/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RCLeague/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RCLeague/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RCLeague/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ARFoundation/Scenes/SimpleAR.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ARFoundation/Scenes/SimpleAR.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/New Terrain 1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/New Terrain 1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Ramp.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Ramp.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ARFoundation/Scripts/PlaceOnPlane.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ARFoundation/Scripts/PlaceOnPlane.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/RaceEnvironment 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/RaceEnvironment 1.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/ARScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ARScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/lobby.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/lobby.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,23 +25,33 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="cs" value="4" />
+          <entry key="cs" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="C#" value="4" />
+          <entry key="C#" value="11" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="cs" value="55" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="C#" value="55" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/LapManager.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="30" column="48" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="48" />
+            <state relative-caret-position="572">
+              <caret line="52" column="45" selection-start-line="52" selection-start-column="45" selection-end-line="52" selection-end-column="45" />
               <folding>
                 <marker date="1549123742812" expanded="false" signature="6:157" ph="..." />
                 <marker date="1549123742812" expanded="true" signature="199:2232" ph="{...}" />
@@ -61,15 +69,83 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/MainMenuCanvas.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <marker date="1549123742813" expanded="false" signature="6:158" ph="..." />
+                <marker date="1549123742813" expanded="true" signature="204:1115" ph="{...}" />
+                <marker date="1549123742813" expanded="true" signature="302:472" ph="{...}" />
+                <marker date="1549123742813" expanded="true" signature="512:780" ph="{...}" />
+                <marker date="1549123742813" expanded="true" signature="817:984" ph="{...}" />
+                <marker date="1549123742813" expanded="true" signature="1023:1113" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/LobbyCanvas.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <marker date="1549123742812" expanded="false" signature="6:78" ph="..." />
+                <marker date="1549123742812" expanded="true" signature="120:526" ph="{...}" />
+                <marker date="1549123742812" expanded="true" signature="229:282" ph="{...}" />
+                <marker date="1549123742812" expanded="true" signature="333:524" ph="{...}" />
+                <marker date="1549123742812" expanded="true" signature="385:445" ph="{...}" />
+                <marker date="1549123742812" expanded="true" signature="458:518" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/ARFoundation/Scripts/PlaceOnPlane.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="615">
+              <caret line="54" column="97" selection-start-line="54" selection-start-column="97" selection-end-line="54" selection-end-column="97" />
+              <folding>
+                <marker date="1549138819148" expanded="false" signature="6:122" ph="..." />
+                <marker date="1549138819148" expanded="false" signature="124:441" ph="/// Listens for touch events and performs an AR raycast from the screen touch point. ... " />
+                <marker date="1549138819148" expanded="true" signature="527:2227" ph="{...}" />
+                <marker date="1549138819148" expanded="false" signature="663:739" ph="/// The prefab to instantiate on touch. ... " />
+                <marker date="1549138819148" expanded="true" signature="774:865" ph="{...}" />
+                <marker date="1549138819148" expanded="false" signature="875:1002" ph="/// The object instantiated as a result of a successful raycast intersection with a plane. ... " />
+                <marker date="1549138819148" expanded="true" signature="1078:1149" ph="{...}" />
+                <marker date="1549138819148" expanded="true" signature="1168:2121" ph="{...}" />
+                <marker date="1549138819148" expanded="true" signature="1365:1917" ph="{...}" />
+                <marker date="1549138819148" expanded="true" signature="1388:1484" ph="/* Raycast hits are sorted by distance, so the first one ... */" />
+                <marker date="1549138819148" expanded="true" signature="1566:1793" ph="{...}" />
+                <marker date="1549138819148" expanded="true" signature="1810:1907" ph="{...}" />
+                <marker date="1549138819148" expanded="true" signature="1963:2105" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/LobbyCanvas.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LapManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CurrentRoomCanvas.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/ARFoundation/Scripts/PlaceOnPlane.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MainMenuCanvas.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ARFoundation/Scripts/SetTargetFramerate.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameMode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/ARFoundation/Scripts/PlaceOnPlane.cs" />
+      </list>
+    </option>
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
@@ -148,6 +224,7 @@
     <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
     <property name="SearchEverywhereHistoryKey" value="gamemana&#9;FILE&#9;file:///Users/andreibalasescu/Personal/Facultate/RCLeague/Assets/Scripts/GameManager.cs" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -187,12 +264,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1549124065973</updated>
-      <workItem from="1549124068358" duration="1701000" />
+      <workItem from="1549124068358" duration="2524000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1701000" />
+    <option name="totallyTimeSpent" value="2524000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -251,26 +328,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
-          <folding>
-            <marker date="1549123742810" expanded="false" signature="6:148" ph="..." />
-            <marker date="1549123742810" expanded="true" signature="180:208" ph="{...}" />
-            <marker date="1549123742810" expanded="true" signature="252:2879" ph="{...}" />
-            <marker date="1549123742810" expanded="true" signature="834:1123" ph="{...}" />
-            <marker date="1549123742810" expanded="true" signature="1152:1425" ph="{...}" />
-            <marker date="1549123742810" expanded="true" signature="1190:1419" ph="{...}" />
-            <marker date="1549123742810" expanded="true" signature="1344:1409" ph="{...}" />
-            <marker date="1549123742810" expanded="true" signature="1500:2728" ph="{...}" />
-            <marker date="1549123742810" expanded="true" signature="1650:2722" ph="{...}" />
-            <marker date="1549123742810" expanded="true" signature="1907:1983" ph="{...}" />
-            <marker date="1549123742810" expanded="true" signature="2759:2877" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/ARFoundation/Scripts/SetTargetFramerate.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -287,10 +344,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameMode.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
+          <folding>
+            <marker date="1549123742810" expanded="false" signature="6:78" ph="..." />
+            <marker date="1549123742810" expanded="true" signature="100:163" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/LapManager.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="30" column="48" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="48" />
+        <state relative-caret-position="572">
+          <caret line="52" column="45" selection-start-line="52" selection-start-column="45" selection-end-line="52" selection-end-column="45" />
           <folding>
             <marker date="1549123742812" expanded="false" signature="6:157" ph="..." />
             <marker date="1549123742812" expanded="true" signature="199:2232" ph="{...}" />
@@ -303,6 +371,90 @@
             <marker date="1549123742812" expanded="true" signature="1837:2162" ph="{...}" />
             <marker date="1549123742812" expanded="true" signature="1892:1955" ph="{...}" />
             <marker date="1549123742812" expanded="true" signature="2195:2230" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/MainMenuCanvas.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <marker date="1549123742813" expanded="false" signature="6:158" ph="..." />
+            <marker date="1549123742813" expanded="true" signature="204:1115" ph="{...}" />
+            <marker date="1549123742813" expanded="true" signature="302:472" ph="{...}" />
+            <marker date="1549123742813" expanded="true" signature="512:780" ph="{...}" />
+            <marker date="1549123742813" expanded="true" signature="817:984" ph="{...}" />
+            <marker date="1549123742813" expanded="true" signature="1023:1113" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+          <folding>
+            <marker date="1549123742810" expanded="false" signature="6:148" ph="..." />
+            <marker date="1549123742810" expanded="true" signature="180:208" ph="{...}" />
+            <marker date="1549123742810" expanded="true" signature="252:2879" ph="{...}" />
+            <marker date="1549123742810" expanded="true" signature="834:1123" ph="{...}" />
+            <marker date="1549123742810" expanded="true" signature="1152:1425" ph="{...}" />
+            <marker date="1549123742810" expanded="true" signature="1190:1419" ph="{...}" />
+            <marker date="1549123742810" expanded="true" signature="1344:1409" ph="{...}" />
+            <marker date="1549123742810" expanded="true" signature="1500:2728" ph="{...}" />
+            <marker date="1549123742810" expanded="true" signature="1650:2722" ph="{...}" />
+            <marker date="1549123742810" expanded="true" signature="1907:1983" ph="{...}" />
+            <marker date="1549123742810" expanded="true" signature="2759:2877" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/CurrentRoomCanvas.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="11" column="62" selection-start-line="11" selection-start-column="62" selection-end-line="11" selection-end-column="62" />
+          <folding>
+            <marker date="1549123742809" expanded="false" signature="6:78" ph="..." />
+            <marker date="1549123742809" expanded="true" signature="127:433" ph="{...}" />
+            <marker date="1549123742809" expanded="true" signature="166:416" ph="{...}" />
+            <marker date="1549123742809" expanded="true" signature="221:312" ph="{...}" />
+            <marker date="1549123742809" expanded="true" signature="325:410" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/LobbyCanvas.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <marker date="1549123742812" expanded="false" signature="6:78" ph="..." />
+            <marker date="1549123742812" expanded="true" signature="120:526" ph="{...}" />
+            <marker date="1549123742812" expanded="true" signature="229:282" ph="{...}" />
+            <marker date="1549123742812" expanded="true" signature="333:524" ph="{...}" />
+            <marker date="1549123742812" expanded="true" signature="385:445" ph="{...}" />
+            <marker date="1549123742812" expanded="true" signature="458:518" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/ARFoundation/Scripts/PlaceOnPlane.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="54" column="97" selection-start-line="54" selection-start-column="97" selection-end-line="54" selection-end-column="97" />
+          <folding>
+            <marker date="1549138819148" expanded="false" signature="6:122" ph="..." />
+            <marker date="1549138819148" expanded="false" signature="124:441" ph="/// Listens for touch events and performs an AR raycast from the screen touch point. ... " />
+            <marker date="1549138819148" expanded="true" signature="527:2227" ph="{...}" />
+            <marker date="1549138819148" expanded="false" signature="663:739" ph="/// The prefab to instantiate on touch. ... " />
+            <marker date="1549138819148" expanded="true" signature="774:865" ph="{...}" />
+            <marker date="1549138819148" expanded="false" signature="875:1002" ph="/// The object instantiated as a result of a successful raycast intersection with a plane. ... " />
+            <marker date="1549138819148" expanded="true" signature="1078:1149" ph="{...}" />
+            <marker date="1549138819148" expanded="true" signature="1168:2121" ph="{...}" />
+            <marker date="1549138819148" expanded="true" signature="1365:1917" ph="{...}" />
+            <marker date="1549138819148" expanded="true" signature="1388:1484" ph="/* Raycast hits are sorted by distance, so the first one ... */" />
+            <marker date="1549138819148" expanded="true" signature="1566:1793" ph="{...}" />
+            <marker date="1549138819148" expanded="true" signature="1810:1907" ph="{...}" />
+            <marker date="1549138819148" expanded="true" signature="1963:2105" ph="{...}" />
           </folding>
         </state>
       </provider>

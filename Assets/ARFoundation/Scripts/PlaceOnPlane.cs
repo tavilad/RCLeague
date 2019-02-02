@@ -43,7 +43,7 @@ public class PlaceOnPlane : MonoBehaviour
 
         var touch = Input.GetTouch(0);
 
-        if (m_SessionOrigin.Raycast(touch.position, s_Hits, TrackableType.PlaneWithinPolygon))
+        if (m_SessionOrigin.Raycast(touch.position, s_Hits, TrackableType.PlaneWithinInfinity))
         {
             // Raycast hits are sorted by distance, so the first one
             // will be the closest hit.
@@ -51,11 +51,17 @@ public class PlaceOnPlane : MonoBehaviour
 
             if (spawnedObject == null)
             {
-                spawnedObject = Instantiate(m_PlacedPrefab, hitPose.position, hitPose.rotation);
+//                spawnedObject = Instantiate(m_PlacedPrefab, hitPose.position, hitPose.rotation);
+                spawnedObject = Instantiate(m_PlacedPrefab, hitPose.position, Quaternion.identity);
             }
             else
             {
                 spawnedObject.transform.position = hitPose.position;
+            }
+        } else {
+            if (spawnedObject == null)
+            {
+                spawnedObject = Instantiate(m_PlacedPrefab, new Vector3(20, -10, 5), Quaternion.Euler(0, 60, 0));
             }
         }
     }
