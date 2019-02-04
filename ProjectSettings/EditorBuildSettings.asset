@@ -8,9 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/lobby.unity
     guid: d868fcacf7805e24cb0ce67b8e8ff37f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/test.unity
     guid: 06ba108e445282c47b1a3c97b5c8006d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/OvalTrack.unity
     guid: 4871ba48f4e5cca42824870c91c1c528
+  - enabled: 1
+    path: Assets/ARFoundation/Scenes/SimpleAR.unity
+    guid: 99c9720ab356a0642a771bea13969a05
+  m_configObjects: {}
