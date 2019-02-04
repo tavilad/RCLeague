@@ -52,7 +52,7 @@ public class Movement : MonoBehaviour {
         _speedText = GameObject.FindWithTag("SpeedText");
 
         if (Application.platform == RuntimePlatform.WindowsPlayer ||
-            Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.OSXEditor) {
+            Application.platform == RuntimePlatform.WindowsEditor) {
             _joystickController.gameObject.SetActive(false);
         }
     }

@@ -11,7 +11,7 @@ public class PlayerNetwork : MonoBehaviour {
 
     private int PlayersInGame = 0;
 
-    private PhotonView PhotonView;
+    public PhotonView PhotonView;
 
     [SerializeField] private GameObject playerPrefab;
 
@@ -49,13 +49,13 @@ public class PlayerNetwork : MonoBehaviour {
     private void OnSceneFinishedLoading(Scene scene, LoadSceneMode mode) {
         if (GameManager.Instance.GameMode == GameMode.Multiplayer) {
             Debug.Log("scene finished loading");
-            PhotonView.RPC("RPC_LoadedGameScene", PhotonTargets.MasterClient, PhotonNetwork.player);
+//            PhotonView.RPC("RPC_LoadedGameScene", PhotonTargets.MasterClient, PhotonNetwork.player);
         }
     }
 
 
     [PunRPC]
-    private void RPC_LoadedGameScene(PhotonPlayer photonPlayer) {
+    public void RPC_LoadedGameScene(PhotonPlayer photonPlayer) {
         PlayersInGame++;
         if (PlayersInGame == PhotonNetwork.playerList.Length) {
             Debug.Log("All players are in the game scene.");

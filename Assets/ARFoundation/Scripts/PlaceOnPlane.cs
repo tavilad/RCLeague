@@ -38,6 +38,10 @@ public class PlaceOnPlane : MonoBehaviour
 
     void Update()
     {
+        if (this.spawnedObject) {
+            return;
+        }
+        
         if (Input.touchCount == 0)
             return;
 
@@ -58,6 +62,8 @@ public class PlaceOnPlane : MonoBehaviour
             {
                 spawnedObject.transform.position = hitPose.position;
             }
+            
+            PlayerNetwork.Instance.PhotonView.RPC("RPC_LoadedGameScene", PhotonTargets.MasterClient, PhotonNetwork.player);
         } else {
             if (spawnedObject == null)
             {
