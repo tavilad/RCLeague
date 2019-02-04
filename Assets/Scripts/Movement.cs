@@ -52,7 +52,7 @@ public class Movement : MonoBehaviour {
         _speedText = GameObject.FindWithTag("SpeedText");
 
         if (Application.platform == RuntimePlatform.WindowsPlayer ||
-            Application.platform == RuntimePlatform.WindowsEditor) {
+            Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.OSXEditor) {
             _joystickController.gameObject.SetActive(false);
         }
     }
@@ -82,8 +82,9 @@ public class Movement : MonoBehaviour {
                     wheelcolliders[1].steerAngle = maxSteerAngle * _joystickController.InputVector.x;
                 }
 
+
                 if (Application.platform == RuntimePlatform.WindowsPlayer ||
-                    Application.platform == RuntimePlatform.WindowsEditor) {
+                    Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.OSXEditor) {
                     wheelcolliders[0].steerAngle = maxSteerAngle * Input.GetAxis("Horizontal");
                     wheelcolliders[1].steerAngle = maxSteerAngle * Input.GetAxis("Horizontal");
                     if (transform.position.y < -2 || Input.GetKey(KeyCode.R)) {
